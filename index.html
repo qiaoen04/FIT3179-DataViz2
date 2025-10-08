@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Total Olympic Medals by Country</title>
-  <!-- Vega, Vega-Lite v6, Vega-Embed -->
+  <title>Participation — Summer (Stacked Bars) + Winter (Lines)</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -14,97 +13,89 @@
   </style>
 </head>
 <body>
-  <h1 style="text-align:center;margin-top:16px;">Total Olympic Medals by Country</h1>
+  <h1 style="text-align:center;margin-top:16px;">Participation — Summer (Stacked Bars) + Winter (Lines)</h1>
   <div id="vis"></div>
 
   <script>
   const spec = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Participation — Summer (Stacked Bars) + Winter (Lines)",
-  "width": 900,
-  "height": 420,
-  "data": {
-    "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/athlete_events.csv",
-    "format": {"type": "csv"}
-  },
-  "params":[{
-    "name":"season_selection",
-    "bind":{
-      "input":"select",
-      "options":[
-        null,"Summer","Winter"
-      ],
-      "labels":[
-        "Show All","Summer","Winter"
-      ],
-      "name":"Season"
-    }
-  }],
-  "transform": [
-    {"filter": "isValid(datum.Year) && datum.Sex != null && datum.Season != null"},
-    {"filter": "season_selection == null || datum.Season == season_selection"},
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 900,
+    "height": 420,
+    "data": {
+      "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/athlete_events.csv",
+      "format": {"type": "csv"}
+    },
 
-    {
-      "aggregate": [{"op": "count", "as": "Entries"}],
-      "groupby": ["Year", "Sex", "Season"]
-    }
-  ],
-  
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "quantitative",
-      "axis": {"format": "d", "title": "Year"}
-    }
-  },
-  "layer": [
-    {
-      "name": "Summer (stacked bars)",
-      "transform": [{"filter": "datum.Season === 'Summer'"}],
-      
-      "mark": {"type": "bar", "opacity": 0.9},
-      "encoding": {
-        "y": {"field": "Entries", "type": "quantitative", "title": "Entries"},
-        "color": {
-          "field": "Sex",
-          "type": "nominal",
-          "scale": {"domain": ["F","M"], "range": ["#f0add5","#8bc8f0"]},
-          "legend": {"title": "Sex"}
-        },
-        "size": {"value": 25},
-        "tooltip": [
-          {"field": "Year", "type": "ordinal", "format": "d", "title": "Year"},
-          {"field": "Season", "title": "Season"},
-          {"field": "Sex", "type": "nominal"},
-          {"field": "Entries", "type": "quantitative", "format": ",", "title": "Entries"}
-        ]
+    "params": [{
+      "name": "season_selection",
+      "value": null,
+      "bind": {
+        "input": "select",
+        "options": [null, "Summer", "Winter"],
+        "labels": ["Show All", "Summer", "Winter"],
+        "name": " Season "
+      }
+    }],
+
+    "transform": [
+      {"filter": "isValid(datum.Year) && datum.Sex != null && datum.Season != null"},
+      {
+        "aggregate": [{"op": "count", "as": "Entries"}],
+        "groupby": ["Year","Sex","Season"]
+      }
+    ],
+
+    "encoding": {
+      "x": {"field": "Year", "type": "quantitative", "axis": {"format": "d", "title": "Year"}},
+      "color": {
+        "field": "Sex", "type": "nominal",
+        "scale": {"domain": ["F","M"], "range": ["#f0add5","#8bc8f0"]},
+        "legend": {"title": "Sex"}
       }
     },
-    {
-      "name": "Winter (lines)",
-      "transform": [{"filter": "datum.Season === 'Winter'"}],
-      "mark": {"type": "line", "point": true, "strokeWidth": 2},
-      "encoding": {
-        "y": {"field": "Entries", "type": "quantitative"},
-        "color": {
-          "field": "Sex",
-          "type": "nominal",
-          "scale": {"domain": ["F","M"], "range": ["#f0add5","#8bc8f0"]},
-          "legend": null
-        },
-        "tooltip": [
-          {"field": "Year", "type": "ordinal", "format": "d", "title": "Year"},
-          {"field":"Season", "title": "Season"},
-          {"field": "Sex", "type": "nominal"},
-          {"field": "Entries", "type": "quantitative", "format": ",", "title": "Entries"}
-        ]
-      }
-    }
-  ],
-  "config": { "mark": { "invalid": null } }
-}
 
-;
+    "layer": [
+      {
+        "name": "Summer (stacked bars)",
+        "transform": [{"filter": "datum.Season === 'Summer'"}],
+        "mark": {"type": "bar"},
+        "encoding": {
+          "y": {"field": "Entries", "type": "quantitative", "title": "Entries"},
+          "size": {"value": 25},
+          "opacity": {
+            "condition": {"test": "season_selection == null || season_selection == 'Summer'", "value": 0.9},
+            "value": 0
+          },
+          "tooltip": [
+            {"field": "Year", "type": "quantitative", "format": "d", "title": "Year"},
+            {"field": "Season", "type": "nominal", "title": "Season"},
+            {"field": "Sex", "type": "nominal"},
+            {"field": "Entries", "type": "quantitative", "format": ",", "title": "Entries"}
+          ]
+        }
+      },
+      {
+        "name": "Winter (lines)",
+        "transform": [{"filter": "datum.Season === 'Winter'"}],
+        "mark": {"type": "line", "point": true, "strokeWidth": 2},
+        "encoding": {
+          "y": {"field": "Entries", "type": "quantitative"},
+          "opacity": {
+            "condition": {"test": "season_selection == null || season_selection == 'Winter'", "value": 1},
+            "value": 0
+          },
+          "tooltip": [
+            {"field": "Year", "type": "quantitative", "format": "d", "title": "Year"},
+            {"field": "Season", "type": "nominal", "title": "Season"},
+            {"field": "Sex", "type": "nominal"},
+            {"field": "Entries", "type": "quantitative", "format": ",", "title": "Entries"}
+          ]
+        }
+      }
+    ],
+
+    "config": { "mark": { "invalid": null } }
+  };
 
   vegaEmbed('#vis', spec, {actions: {export:true, source:false, compiled:false, editor:false}});
   </script>
