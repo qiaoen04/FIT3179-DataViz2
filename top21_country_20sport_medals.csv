@@ -1,0 +1,312 @@
+Team,Sport,Total_Medals,Country_Total,Sport_Total,Rank_Country,Rank_Sport
+United States,Athletics,530,3553,2490,1,1
+United States,Basketball,287,3553,932,1,12
+United States,Boxing,66,3553,687,1,16
+United States,Canoeing,12,3553,1006,1,9
+United States,Cross Country Skiing,1,3553,668,1,17
+United States,Cycling,46,3553,819,1,14
+United States,Equestrianism,104,3553,638,1,19
+United States,Fencing,31,3553,1030,1,8
+United States,Football,79,3553,1078,1,7
+United States,Gymnastics,121,3553,1094,1,6
+United States,Hockey,16,3553,1182,1,5
+United States,Ice Hockey,199,3553,1220,1,4
+United States,Judo,14,3553,547,1,20
+United States,Rowing,195,3553,1990,1,3
+United States,Sailing,79,3553,650,1,18
+United States,Swimming,875,3553,2430,1,2
+United States,Volleyball,120,3553,969,1,11
+United States,Water Polo,113,3553,737,1,15
+United States,Wrestling,76,3553,881,1,13
+Soviet Union,Athletics,197,2128,2490,2,1
+Soviet Union,Basketball,120,2128,932,2,12
+Soviet Union,Boxing,39,2128,687,2,16
+Soviet Union,Canoeing,76,2128,1006,2,9
+Soviet Union,Cross Country Skiing,99,2128,668,2,17
+Soviet Union,Cycling,53,2128,819,2,14
+Soviet Union,Equestrianism,29,2128,638,2,19
+Soviet Union,Fencing,140,2128,1030,2,8
+Soviet Union,Football,69,2128,1078,2,7
+Soviet Union,Gymnastics,207,2128,1094,2,6
+Soviet Union,Handball,84,2128,999,2,10
+Soviet Union,Hockey,32,2128,1182,2,5
+Soviet Union,Ice Hockey,151,2128,1220,2,4
+Soviet Union,Judo,23,2128,547,2,20
+Soviet Union,Rowing,135,2128,1990,2,3
+Soviet Union,Sailing,18,2128,650,2,18
+Soviet Union,Swimming,119,2128,2430,2,2
+Soviet Union,Volleyball,141,2128,969,2,11
+Soviet Union,Water Polo,68,2128,737,2,15
+Soviet Union,Wrestling,93,2128,881,2,13
+Germany,Athletics,71,1399,2490,3,1
+Germany,Boxing,16,1399,687,3,16
+Germany,Canoeing,138,1399,1006,3,9
+Germany,Cross Country Skiing,35,1399,668,3,17
+Germany,Cycling,71,1399,819,3,14
+Germany,Equestrianism,92,1399,638,3,19
+Germany,Fencing,50,1399,1030,3,8
+Germany,Football,104,1399,1078,3,7
+Germany,Gymnastics,18,1399,1094,3,6
+Germany,Handball,30,1399,999,3,10
+Germany,Hockey,130,1399,1182,3,5
+Germany,Judo,20,1399,547,3,20
+Germany,Rowing,158,1399,1990,3,3
+Germany,Sailing,14,1399,650,3,18
+Germany,Swimming,114,1399,2430,3,2
+Germany,Wrestling,16,1399,881,3,13
+Australia,Athletics,46,1166,2490,4,1
+Australia,Basketball,60,1166,932,4,12
+Australia,Boxing,3,1166,687,4,16
+Australia,Canoeing,39,1166,1006,4,9
+Australia,Cycling,75,1166,819,4,14
+Australia,Equestrianism,37,1166,638,4,19
+Australia,Hockey,188,1166,1182,4,5
+Australia,Judo,2,1166,547,4,20
+Australia,Rowing,119,1166,1990,4,3
+Australia,Sailing,45,1166,650,4,18
+Australia,Swimming,346,1166,2430,4,2
+Australia,Water Polo,39,1166,737,4,15
+Russia,Athletics,103,1100,2490,5,1
+Russia,Basketball,36,1100,932,5,12
+Russia,Boxing,30,1100,687,5,16
+Russia,Canoeing,22,1100,1006,5,9
+Russia,Cross Country Skiing,49,1100,668,5,17
+Russia,Cycling,24,1100,819,5,14
+Russia,Fencing,62,1100,1030,5,8
+Russia,Gymnastics,83,1100,1094,5,6
+Russia,Handball,58,1100,999,5,10
+Russia,Ice Hockey,43,1100,1220,5,4
+Russia,Judo,16,1100,547,5,20
+Russia,Rowing,17,1100,1990,5,3
+Russia,Sailing,4,1100,650,5,18
+Russia,Swimming,43,1100,2430,5,2
+Russia,Volleyball,70,1100,969,5,11
+Russia,Water Polo,51,1100,737,5,15
+Russia,Wrestling,57,1100,881,5,13
+Italy,Athletics,40,959,2490,6,1
+Italy,Basketball,24,959,932,6,12
+Italy,Boxing,28,959,687,6,16
+Italy,Canoeing,23,959,1006,6,9
+Italy,Cross Country Skiing,61,959,668,6,17
+Italy,Cycling,65,959,819,6,14
+Italy,Equestrianism,24,959,638,6,19
+Italy,Fencing,179,959,1030,6,8
+Italy,Football,17,959,1078,6,7
+Italy,Gymnastics,15,959,1094,6,6
+Italy,Judo,15,959,547,6,20
+Italy,Rowing,74,959,1990,6,3
+Italy,Sailing,13,959,650,6,18
+Italy,Swimming,27,959,2430,6,2
+Italy,Volleyball,72,959,969,6,11
+Italy,Water Polo,100,959,737,6,15
+Italy,Wrestling,8,959,881,6,13
+East Germany,Athletics,140,941,2490,7,1
+East Germany,Boxing,13,941,687,7,16
+East Germany,Canoeing,50,941,1006,7,9
+East Germany,Cross Country Skiing,10,941,668,7,17
+East Germany,Cycling,33,941,819,7,14
+East Germany,Fencing,1,941,1030,7,8
+East Germany,Football,51,941,1078,7,7
+East Germany,Gymnastics,86,941,1094,7,6
+East Germany,Handball,42,941,999,7,10
+East Germany,Judo,9,941,547,7,20
+East Germany,Rowing,184,941,1990,7,3
+East Germany,Sailing,15,941,650,7,18
+East Germany,Swimming,152,941,2430,7,2
+East Germany,Volleyball,24,941,969,7,11
+East Germany,Wrestling,7,941,881,7,13
+Canada,Athletics,41,938,2490,8,1
+Canada,Boxing,9,938,687,8,16
+Canada,Canoeing,24,938,1006,8,9
+Canada,Cross Country Skiing,4,938,668,8,17
+Canada,Cycling,19,938,819,8,14
+Canada,Equestrianism,14,938,638,8,19
+Canada,Football,36,938,1078,8,7
+Canada,Gymnastics,1,938,1094,8,6
+Canada,Ice Hockey,247,938,1220,8,4
+Canada,Judo,5,938,547,8,20
+Canada,Rowing,130,938,1990,8,3
+Canada,Sailing,15,938,650,8,18
+Canada,Swimming,90,938,2430,8,2
+Canada,Wrestling,11,938,881,8,13
+China,Athletics,27,901,2490,9,1
+China,Basketball,23,901,932,9,12
+China,Boxing,12,901,687,9,16
+China,Canoeing,4,901,1006,9,9
+China,Cycling,9,901,819,9,14
+China,Fencing,30,901,1030,9,8
+China,Football,15,901,1078,9,7
+China,Gymnastics,109,901,1094,9,6
+China,Handball,13,901,999,9,10
+China,Hockey,16,901,1182,9,5
+China,Judo,22,901,547,9,20
+China,Rowing,29,901,1990,9,3
+China,Sailing,6,901,650,9,18
+China,Swimming,70,901,2430,9,2
+China,Volleyball,66,901,969,9,11
+China,Wrestling,10,901,881,9,13
+Great Britain,Athletics,157,864,2490,10,1
+Great Britain,Boxing,25,864,687,10,16
+Great Britain,Canoeing,18,864,1006,10,9
+Great Britain,Cycling,89,864,819,10,14
+Great Britain,Equestrianism,67,864,638,10,19
+Great Britain,Fencing,8,864,1030,10,8
+Great Britain,Gymnastics,15,864,1094,10,6
+Great Britain,Hockey,79,864,1182,10,5
+Great Britain,Judo,19,864,547,10,20
+Great Britain,Rowing,157,864,1990,10,3
+Great Britain,Sailing,61,864,650,10,18
+Great Britain,Swimming,63,864,2430,10,2
+Great Britain,Wrestling,1,864,881,10,13
+France,Athletics,54,832,2490,11,1
+France,Basketball,24,832,932,11,12
+France,Boxing,15,832,687,11,16
+France,Canoeing,37,832,1006,11,9
+France,Cross Country Skiing,5,832,668,11,17
+France,Cycling,63,832,819,11,14
+France,Equestrianism,41,832,638,11,19
+France,Fencing,150,832,1030,11,8
+France,Football,16,832,1078,11,7
+France,Gymnastics,8,832,1094,11,6
+France,Handball,77,832,999,11,10
+France,Judo,49,832,547,11,20
+France,Rowing,46,832,1990,11,3
+France,Sailing,24,832,650,11,18
+France,Swimming,56,832,2430,11,2
+France,Wrestling,9,832,881,11,13
+Japan,Athletics,18,807,2490,12,1
+Japan,Boxing,5,807,687,12,16
+Japan,Canoeing,1,807,1006,12,9
+Japan,Cycling,6,807,819,12,14
+Japan,Fencing,5,807,1030,12,8
+Japan,Football,34,807,1078,12,7
+Japan,Gymnastics,146,807,1094,12,6
+Japan,Judo,84,807,547,12,20
+Japan,Sailing,4,807,650,12,18
+Japan,Swimming,76,807,2430,12,2
+Japan,Volleyball,101,807,969,12,11
+Japan,Wrestling,63,807,881,12,13
+Netherlands,Athletics,5,713,2490,13,1
+Netherlands,Boxing,5,713,687,13,16
+Netherlands,Canoeing,6,713,1006,13,9
+Netherlands,Cycling,43,713,819,13,14
+Netherlands,Equestrianism,33,713,638,13,19
+Netherlands,Gymnastics,2,713,1094,13,6
+Netherlands,Hockey,209,713,1182,13,5
+Netherlands,Judo,23,713,547,13,20
+Netherlands,Rowing,116,713,1990,13,3
+Netherlands,Sailing,16,713,650,13,18
+Netherlands,Swimming,85,713,2430,13,2
+Netherlands,Volleyball,24,713,969,13,11
+Netherlands,Water Polo,22,713,737,13,15
+Hungary,Athletics,19,702,2490,14,1
+Hungary,Boxing,13,702,687,14,16
+Hungary,Canoeing,144,702,1006,14,9
+Hungary,Fencing,131,702,1030,14,8
+Hungary,Football,64,702,1078,14,7
+Hungary,Gymnastics,23,702,1094,14,6
+Hungary,Handball,45,702,999,14,10
+Hungary,Judo,9,702,547,14,20
+Hungary,Rowing,4,702,1990,14,3
+Hungary,Sailing,2,702,650,14,18
+Hungary,Swimming,44,702,2430,14,2
+Hungary,Water Polo,109,702,737,14,15
+Hungary,Wrestling,31,702,881,14,13
+Sweden,Athletics,14,632,2490,15,1
+Sweden,Boxing,3,632,687,15,16
+Sweden,Canoeing,39,632,1006,15,9
+Sweden,Cross Country Skiing,86,632,668,15,17
+Sweden,Cycling,18,632,819,15,14
+Sweden,Equestrianism,14,632,638,15,19
+Sweden,Fencing,7,632,1030,15,8
+Sweden,Football,18,632,1078,15,7
+Sweden,Handball,61,632,999,15,10
+Sweden,Ice Hockey,188,632,1220,15,4
+Sweden,Sailing,25,632,650,15,18
+Sweden,Swimming,43,632,2430,15,2
+Sweden,Wrestling,22,632,881,15,13
+Romania,Athletics,35,611,2490,16,1
+Romania,Boxing,19,611,687,16,16
+Romania,Canoeing,63,611,1006,16,9
+Romania,Equestrianism,3,611,638,16,19
+Romania,Fencing,46,611,1030,16,8
+Romania,Gymnastics,128,611,1094,16,6
+Romania,Handball,58,611,999,16,10
+Romania,Judo,6,611,547,16,20
+Romania,Rowing,175,611,1990,16,3
+Romania,Swimming,9,611,2430,16,2
+Romania,Volleyball,10,611,969,16,11
+Romania,Wrestling,32,611,881,16,13
+South Korea,Athletics,2,586,2490,17,1
+South Korea,Basketball,11,586,932,17,12
+South Korea,Boxing,17,586,687,17,16
+South Korea,Fencing,20,586,1030,17,8
+South Korea,Football,18,586,1078,17,7
+South Korea,Gymnastics,9,586,1094,17,6
+South Korea,Handball,96,586,999,17,10
+South Korea,Hockey,48,586,1182,17,5
+South Korea,Judo,43,586,547,17,20
+South Korea,Swimming,4,586,2430,17,2
+South Korea,Volleyball,12,586,969,17,11
+South Korea,Wrestling,36,586,881,17,13
+West Germany,Athletics,71,558,2490,18,1
+West Germany,Boxing,6,558,687,18,16
+West Germany,Canoeing,12,558,1006,18,9
+West Germany,Cycling,28,558,819,18,14
+West Germany,Equestrianism,62,558,638,18,19
+West Germany,Fencing,48,558,1030,18,8
+West Germany,Football,18,558,1078,18,7
+West Germany,Gymnastics,1,558,1094,18,6
+West Germany,Handball,15,558,999,18,10
+West Germany,Hockey,66,558,1182,18,5
+West Germany,Ice Hockey,18,558,1220,18,4
+West Germany,Judo,8,558,547,18,20
+West Germany,Rowing,51,558,1990,18,3
+West Germany,Sailing,14,558,650,18,18
+West Germany,Swimming,59,558,2430,18,2
+West Germany,Water Polo,12,558,737,18,15
+West Germany,Wrestling,9,558,881,18,13
+Norway,Athletics,8,547,2490,19,1
+Norway,Canoeing,19,547,1006,19,9
+Norway,Cross Country Skiing,139,547,668,19,17
+Norway,Cycling,4,547,819,19,14
+Norway,Fencing,1,547,1030,19,8
+Norway,Football,33,547,1078,19,7
+Norway,Handball,85,547,999,19,10
+Norway,Rowing,28,547,1990,19,3
+Norway,Sailing,10,547,650,19,18
+Norway,Swimming,2,547,2430,19,2
+Norway,Wrestling,3,547,881,19,13
+Poland,Athletics,63,479,2490,20,1
+Poland,Boxing,38,479,687,20,16
+Poland,Canoeing,35,479,1006,20,9
+Poland,Cross Country Skiing,5,479,668,20,17
+Poland,Cycling,20,479,819,20,14
+Poland,Equestrianism,5,479,638,20,19
+Poland,Fencing,63,479,1030,20,8
+Poland,Football,50,479,1078,20,7
+Poland,Gymnastics,2,479,1094,20,6
+Poland,Handball,14,479,999,20,10
+Poland,Judo,8,479,547,20,20
+Poland,Rowing,34,479,1990,20,3
+Poland,Sailing,4,479,650,20,18
+Poland,Swimming,6,479,2430,20,2
+Poland,Volleyball,34,479,969,20,11
+Poland,Wrestling,26,479,881,20,13
+Spain,Athletics,14,450,2490,21,1
+Spain,Basketball,60,450,932,21,12
+Spain,Boxing,4,450,687,21,16
+Spain,Canoeing,24,450,1006,21,9
+Spain,Cycling,19,450,819,21,14
+Spain,Equestrianism,5,450,638,21,19
+Spain,Fencing,1,450,1030,21,8
+Spain,Football,34,450,1078,21,7
+Spain,Gymnastics,4,450,1094,21,6
+Spain,Handball,60,450,999,21,10
+Spain,Hockey,77,450,1182,21,5
+Spain,Judo,6,450,547,21,20
+Spain,Rowing,2,450,1990,21,3
+Spain,Sailing,32,450,650,21,18
+Spain,Swimming,8,450,2430,21,2
+Spain,Water Polo,36,450,737,21,15
+Spain,Wrestling,1,450,881,21,13
