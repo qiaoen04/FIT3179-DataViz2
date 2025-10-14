@@ -19,176 +19,328 @@
 
   <script>
   const spec = {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "params": [{
-          "name": "season_selection",
-          "value": null,
-          "bind": {
-            "input": "select",
-            "options": [null, "Summer", "Winter"],
-            "labels": ["Show All", "Summer", "Winter"],
-            "name": " Season "
-          }
-        }],
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+
+  "params": [
+    {
+      "name": "season_selection",
+      "value": null,
+      "bind": {
+        "input": "select",
+        "options": [null, "Summer", "Winter"],
+        "labels": ["— Select a Season —", "Summer", "Winter"],
+        "name": " Season "
+      }
+    },
+   {
+  "name": "country_sel",
+  "value": null,
+  "bind": {
+    "input": "select",
+    "name": " Country ",
+    "options": [null,
+      "United States of America","Germany","France","United Kingdom","China","Italy","Russia","Sweden","Japan","Australia","Norway","Canada","Hungary","Netherlands","Finland","South Korea","Switzerland","Austria","Poland","Romania","Cuba","Bulgaria","Denmark","Ukraine","Spain","Belgium","Brazil","Greece","New Zealand","Czechia","Turkey","Kenya","Belarus","Argentina","Kazakhstan","South Africa","Mexico","Iran","Jamaica","Slovenia","Ethiopia","Azerbaijan","North Korea","Uzbekistan","Croatia","Egypt","Thailand","India","Slovakia","Colombia","Georgia","Taiwan","Estonia","Ireland","Latvia","Indonesia","Lithuania","Mongolia","Nigeria","Portugal","Morocco","Venezuela","Serbia","Armenia","Israel","Algeria","Trinidad and Tobago","Tunisia","Malaysia","The Bahamas","Dominican Republic","Hong Kong S.A.R","Philippines","Uganda","Vietnam","Chile","Kyrgyzstan","Singapore","Puerto Rico","Moldova","Pakistan","Ecuador","Uruguay","Qatar","Liechtenstein","Zimbabwe","Luxembourg","Peru","Ghana","Cameroon","Jordan","Tajikistan","Bahrain","Iceland","Zambia","Lebanon","Namibia","Côte d'Ivoire","Syria","Burundi","Costa Rica","Kuwait","Eritrea","Botswana","Fiji","Grenada","Afghanistan","Niger","Sri Lanka","Haiti","United Arab Emirates","Panama","North Macedonia","Cyprus","Suriname","San Marino","Tanzania","Iraq","Mozambique","Guatemala","Turkmenistan","Bosnia and Herzegovina","Mauritius","Djibouti","U.S Virgin Islands","Bermuda","Monaco","Sudan","Burkina Faso","Senegal","Cambodia","Bolivia","Honduras","Togo","Paraguay","El Salvador","Gabon","Guyana","Montenegro","Barbados","Samoa","Saint Lucia","Tonga","Andorra","Nauru"
+    ],
+    "labels": ["— Select a country —"]
+  }
+}
+
+
+  ],
+
+
+  "vconcat": [
+    {
+      "hconcat": [
+  {
     "vconcat": [
       {
         "title": "Olympic medals for each countries",
-  "width": 800,
-  "height": 400,
-  "projection": {"type": "equalEarth"},
-  "layer": [
-    { "data": {"sphere": true},
-      "mark": {"type": "geoshape", "fill":"#eef6fb", "stroke": null}
-    },
-    { "data": {"graticule": true},
-      "mark": {"type": "geoshape", "stroke": "#c7d2d9", "strokeWidth": 0.5}
-    },
-
-    
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-      },
-      "mark": {"type": "geoshape", "fill": "#f2efe9", "stroke": "#ffffff", "strokeWidth": 0.3}
-    },
-
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-      },
-      "transform": [
-        {
-          "lookup": "properties.NAME",
-          "from": {
+        "width": 800,
+        "height": 400,
+        "projection": {"type": "equalEarth"},
+        "layer": [
+          { "data": {"sphere": true},
+            "mark": {"type": "geoshape", "fill":"#eef6fb", "stroke": null}
+          },
+          { "data": {"graticule": true},
+            "mark": {"type": "geoshape", "stroke": "#c7d2d9", "strokeWidth": 0.5}
+          },
+          {
             "data": {
-              "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"
+              "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+              "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
             },
-            "key": "country",
-            "fields": ["OlympicMedalsTotal_2022"]
+            "mark": {"type": "geoshape", "fill": "#f2efe9", "stroke": "#ffffff", "strokeWidth": 0.3}
+          },
+          {
+            "data": {
+              "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+              "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+            },
+            "transform": [
+              {
+                "lookup": "properties.NAME",
+                "from": {
+                  "data": {
+                    "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"
+                  },
+                  "key": "country",
+                  "fields": ["OlympicMedalsTotal_2022"]
+                }
+              },
+              {"calculate": "toNumber(datum.OlympicMedalsTotal_2022)", "as": "Medals"}
+            ],
+            "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.3},
+            "encoding": {
+              "color": {
+                "field": "Medals",
+                "type": "quantitative",
+                "scale": {"type": "log", "domainMin": 1},
+                "legend": {"title": "Total medals", "orient": "right"}  
+              },
+              "tooltip": [
+                {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+                {"field": "Medals", "type": "quantitative", "title": "Medals"}
+              ]
+            }
           }
-        },
-        {"calculate": "toNumber(datum.OlympicMedalsTotal_2022)", "as": "Medals"}
-      ],
-      "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.3},
-      "encoding": {
-        "color": {
-          "field": "Medals",
-          "type": "quantitative",
-          "scale": {"type": "log", "domainMin": 1},
-          "legend": {"title": "Total medals"}
-        },
-        "tooltip": [
-          {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-          {"field": "Medals", "type": "quantitative", "title": "Medals"}
         ]
       }
-    }
-  ]
-      },
+    ]
+  },
+  {
+    "vconcat": [
       {
-        "title": "Participation -- Summer (Stacked Bars) + Winter (Lines)",
-        "width": 900,
-        "height": 420,
+        "title": {"text": "Medal Mix by Country (One Donut per Country)", "fontSize": 16},
+        
+        "width": 280,
+        "height": 280,
         "data": {
-          "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/athlete_events.csv",
-          "format": {"type": "csv"}
+          "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"
         },
-          
-
         "transform": [
-          {"filter": "isValid(datum.Year) && datum.Sex != null && datum.Season != null"},
-          {"aggregate": [{"op":"count","as":"Entries"}], "groupby": ["Year","Sex","Season"]}
+          {"filter": "datum.country && datum.country != 'Total'"},
+          {
+            "fold": ["OlympicMedalsGold", "OlympicMedalsSilver", "OlympicMedalsBronze"],
+            "as": ["MedalType", "Count"]
+          },
+          {
+            "calculate": "datum.MedalType == 'OlympicMedalsGold' ? 'Gold' : datum.MedalType == 'OlympicMedalsSilver' ? 'Silver' : 'Bronze'",
+            "as": "Medal"
+          },
+          {"aggregate": [{"op": "sum", "field": "Count", "as": "Count"}], "groupby": ["country", "Medal"]},
+          {"joinaggregate": [{"op": "sum", "field": "Count", "as": "Total"}], "groupby": ["country"]},
+          {"calculate": "round(datum.Count / datum.Total * 100)", "as": "Pct"}
         ],
-
-        "encoding": {
-          "x": {"field": "Year", "type": "quantitative", "axis": {"format": "d", "title": "Year"}},
-          "color": {
-            "field": "Sex", "type": "nominal",
-            "scale": {"domain": ["F","M"], "range": ["#f0add5","#8bc8f0"]},
-            "legend": {"title": "Sex"}
-          }
-        },
-
         "layer": [
           {
-            "name": "Summer (stacked bars)",
-            "transform": [{"filter": "datum.Season == 'Summer'"}],
-            "mark": {"type":"bar"},
-            "encoding": {
-              "y": {"field":"Entries","type":"quantitative","title":"Entries"},
-              "size": {"value": 25},
-              "opacity": {
-                "condition": {"test": "season_selection == null || season_selection == 'Summer'", "value": 0.9},
-                "value": 0
-              },
-              "tooltip": [
-                {"field":"Year","type":"quantitative","format":"d","title":"Year"},
-                {"field":"Season","type":"nominal","title":"Season"},
-                {"field":"Sex","type":"nominal"},
-                {"field":"Entries","type":"quantitative","format":",","title":"Entries"}
-              ]
-            }
+            "transform": [{"filter": "country_sel == null"}],
+            "mark": {"type": "arc", "innerRadius": 70, "outerRadius": 130, "color": "#e0e0e0"},
+            "encoding": {"theta": {"value": 7}}
           },
-          
-          
           {
-            "name": "Winter (lines)",
-            "transform": [{"filter": "datum.Season == 'Winter'"}],
-            "mark": {"type":"line","point": true, "strokeWidth": 2},
+            "transform": [{"filter": "country_sel == null"}],
+            "mark": {"type": "text", "radius": 0, "dy": 5, "fontSize": 14, "fontWeight": "bold"},
+            "encoding": {"text": {"value": "Select a country"}, "color": {"value": "#666"}}
+          },
+          {
+            "transform": [{"filter": "datum.country == country_sel"}],
+            "mark": {"type": "arc", "innerRadius": 50, "outerRadius": 100},
             "encoding": {
-              "y": {"field":"Entries","type":"quantitative"},
-              "opacity": {
-                "condition": {"test": "season_selection == null || season_selection == 'Winter'", "value": 1},
-                "value": 0
+              "theta": {"field": "Count", "type": "quantitative", "stack": true},
+              "color": {
+                "field": "Medal",
+                "type": "nominal",
+                "sort": ["Gold", "Silver", "Bronze"],
+                "scale": {"range": ["#d4af37", "#c0c0c0", "#cd7f32"]},
+                "legend": {
+                  "title": "Medal Type",
+                  "orient": "right",
+                  "offset": 0,
+                  "symbolType": "circle"
+                }
               },
               "tooltip": [
-                {"field":"Year","type":"quantitative","format":"d","title":"Year"},
-                {"field":"Season","type":"nominal","title":"Season"},
-                {"field":"Sex","type":"nominal"},
-                {"field":"Entries","type":"quantitative","format":",","title":"Entries"}
+                {"field": "country", "title": "Country"},
+                {"field": "Medal", "title": "Medal"},
+                {"field": "Count", "title": "Medals"},
+                {"field": "Pct", "title": "Share (%)"},
+                {"field": "Total", "title": "Total"}
               ]
             }
           },
           {
-            "name": "Summer total labels (all years)",
-            "transform": [
-              { "filter": "datum.Season == 'Summer'" },
-              { "aggregate": [{ "op": "sum", "field": "Entries", "as": "Total" }], "groupby": ["Year"] }
-            ],
-            "mark": {
-              "type": "text",
-              "dy": -6,
-              "fontSize": 11,
-              "stroke": "black",
-              "strokeWidth": 1
-            },
-            "encoding": {
-              "x": { "field": "Year", "type": "quantitative" },
-              "y": { "field": "Total", "type": "quantitative" },
-              "text": { "field": "Total", "type": "quantitative", "format": ",d" },
-              "opacity": {
-                "condition": {
-                  "test": "season_selection == null || season_selection == 'Summer'",
-                  "value": 1
-                },
-                "value": 0
-              },
-              "tooltip": [
-                { "field": "Year", "type": "quantitative", "format": "d", "title": "Year" },
-                { "field": "Total", "type": "quantitative", "format": ",d", "title": "Summer total" }
-              ]
-            }
-          }
-
-          
+            "transform": [{"filter": "datum.country == country_sel"}],
+            "mark": {"type": "text", "radius": 0, "dy": 5, "fontSize": 12, "fontWeight": "bold"},
+            "encoding": {"text": {"field": "country"}}
+          },
+     
         ]
       }
-    ],
-
-    "spacing": 30
+    ]
   }
+],
+"spacing": 20
+
+    },
+
+
+    {
+      "title": "Participation — Summer (Stacked Bars) + Winter (Lines)",
+      "width": 1200,
+      "height": 420,
+      "data": {
+        "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/athlete_events.csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {"filter": "isValid(datum.Year) && datum.Sex != null && datum.Season != null"},
+        {"aggregate": [{"op":"count","as":"Entries"}], "groupby": ["Year","Sex","Season"]}
+      ],
+      "encoding": {
+        "x": {"field": "Year", "type": "quantitative", "axis": {"format": "d", "title": "Year"}},
+        "color": {
+  "field": "Sex",
+  "type": "nominal",
+  "scale": {"domain": ["F", "M"], "range": ["#f0add5", "#8bc8f0"]},
+  "legend": {
+    "title": "Sex",
+    "orient": "right",
+    "direction": "vertical",
+    "titleFontSize": 12,
+    "labelFontSize": 11,
+    "symbolType": "circle",
+    "offset": 10
+  }
+}
+
+
+
+      },
+      "layer": [
+        {
+          "name": "Summer (stacked bars)",
+          "transform": [{"filter": "datum.Season == 'Summer'"}],
+          "mark": {"type": "bar"},
+          "encoding": {
+            "y": {"field": "Entries", "type": "quantitative", "title": "Entries"},
+            "size": {"value": 25},
+            "opacity": {
+              "condition": {"test": "season_selection == null || season_selection == 'Summer'", "value": 0.9},
+              "value": 0
+            },
+            "tooltip": [
+              {"field":"Year","type":"quantitative","format":"d","title":"Year"},
+              {"field":"Season","type":"nominal","title":"Season"},
+              {"field":"Sex","type":"nominal"},
+              {"field":"Entries","type":"quantitative","format":",","title":"Entries"}
+            ]
+          }
+        },
+        {
+          "name": "Winter (lines)",
+          "transform": [{"filter": "datum.Season == 'Winter'"}],
+          "mark": {"type": "line", "point": true, "strokeWidth": 2},
+          "encoding": {
+            "y": {"field": "Entries", "type": "quantitative"},
+            "opacity": {
+              "condition": {"test": "season_selection == null || season_selection == 'Winter'", "value": 1},
+              "value": 0
+            },
+            "tooltip": [
+              {"field":"Year","type":"quantitative","format":"d","title":"Year"},
+              {"field":"Season","type":"nominal","title":"Season"},
+              {"field":"Sex","type":"nominal"},
+              {"field":"Entries","type":"quantitative","format":",","title":"Entries"}
+            ]
+          }
+        },
+        {
+          "name": "Summer total labels (all years)",
+          "transform": [
+            {"filter": "datum.Season == 'Summer'"},
+            {"aggregate": [{"op": "sum", "field": "Entries", "as": "Total"}], "groupby": ["Year"]}
+          ],
+          "mark": {"type": "text", "dy": -6, "fontSize": 11, "stroke": "black", "strokeWidth": 1},
+          "encoding": {
+            "x": {"field": "Year", "type": "quantitative"},
+            "y": {"field": "Total", "type": "quantitative"},
+            "text": {"field": "Total", "type": "quantitative", "format": ",d"},
+            "opacity": {
+              "condition": {"test": "season_selection == null || season_selection == 'Summer'", "value": 1},
+              "value": 0
+            },
+            "tooltip": [
+              {"field": "Year", "type": "quantitative", "format": "d", "title": "Year"},
+              {"field": "Total", "type": "quantitative", "format": ",d", "title": "Summer total"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+    "text": "Total Medals by Sport and Country (Top 20 Countries)",
+    "fontSize": 16
+  },
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/refs/heads/main/top21_country_20sport_medals.csv"
+  },
+
+  "mark": "rect",
+
+  "encoding": {
+    "x": {
+      "field": "Sport",
+      "type": "nominal",
+      "title": "Sport",
+      "axis": {"labelAngle": -45, "labelFontSize": 10},
+      "sort": "ascending"
+    },
+    "y": {
+      "field": "Team",
+      "type": "nominal",
+      "title": "Country",
+      "sort": {"field": "Country_Total", "op": "max", "order": "descending"}
+    },
+    "color": {
+      "field": "Total_Medals",
+      "type": "quantitative",
+      "title": "Total Medals",
+      "scale": {"scheme": "goldred"}
+    },
+    "tooltip": [
+      {"field": "Team", "title": "Country"},
+      {"field": "Sport", "title": "Sport"},
+      {"field": "Total_Medals", "title": "Total Medals"},
+      {"field": "Country_Total", "title": "Country Total"}
+    ]
+  },
+
+  "config": {
+    "axis": {"titleFontSize": 13, "labelFontSize": 10},
+    "view": {"stroke": "transparent"}
+  }
+    }
+  
+  ],
+  "resolve": {
+  "scale": {"color": "independent"},
+  "legend": {"color": "independent"},
+  
+},
+
+
+
+  "spacing": 30
+}
+
+
+
+
 
 ;
 
