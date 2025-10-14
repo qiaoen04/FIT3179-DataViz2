@@ -324,8 +324,95 @@
     "axis": {"titleFontSize": 13, "labelFontSize": 10},
     "view": {"stroke": "transparent"}
   }
-    }
+    },
+  {
   
+  "title": "Age and BMI Distribution by Medal Type",
+  "data": {
+    "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/athletes_with_bmi.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Medal != null && datum.Medal != 'NA'"
+    },
+    {
+      "calculate": "datum.Weight / ((datum.Height / 100) * (datum.Height / 100))",  // Calculate BMI (Weight in kg, Height in cm)
+      "as": "BMI"
+    }
+  ],
+  "hconcat": [
+    {
+      "mark": {
+        "type": "boxplot",
+        "size": 70  // Make the boxplot marks larger
+      },
+      "width": 400,  // Width of the first boxplot
+      "height": 400, // Height of the first boxplot
+      "encoding": {
+        "x": {
+          "field": "Medal",
+          "type": "nominal",
+          "title": "Medal Type",
+          "sort": ["Gold", "Silver", "Bronze"]
+        },
+        "y": {
+          "field": "Age",
+          "type": "quantitative",
+          "title": "Age"
+        },
+        "color": {
+          "field": "Medal",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Gold", "Silver", "Bronze"],
+            "range": ["#FFD700", "#C0C0C0", "#CD7F32"]
+          },
+          "title": "Medal Type"
+        },
+        "tooltip": [
+          {"field": "Medal", "title": "Medal Type"},
+          {"field": "Age", "title": "Age"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "boxplot",
+        "size": 70  
+      },
+      "width": 400,  
+      "height": 400, 
+      "encoding": {
+        "x": {
+          "field": "Medal",
+          "type": "nominal",
+          "title": "Medal Type",
+          "sort": ["Gold", "Silver", "Bronze"]
+        },
+        "y": {
+          "field": "BMI",
+          "type": "quantitative",
+          "title": "BMI"
+        },
+        "color": {
+          "field": "Medal",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Gold", "Silver", "Bronze"],
+            "range": ["#FFD700", "#C0C0C0", "#CD7F32"]
+          },
+          "title": "Medal Type"
+        },
+        "tooltip": [
+          {"field": "Medal", "title": "Medal Type"},
+          {"field": "BMI", "title": "BMI"}
+        ]
+      }
+    }
+  ]
+}
+
+
   ],
   "resolve": {
   "scale": {"color": "independent"},
@@ -337,6 +424,8 @@
 
   "spacing": 30
 }
+
+
 
 
 
