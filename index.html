@@ -99,39 +99,72 @@
 
   // ---------- DONUT (country picker under chart) ----------
   const donutSpec = {
-    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-    "data":{"url":"https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"},
-    "width":540,"height":330,
-    "params":[
-      {
-        "name":"country_sel",
-        "value": null,
-        "bind":{
-          "input":"select",
-          "name":"Country: ",
-          "options":[null,"United States of America","Germany","France","United Kingdom","China","Italy","Russia","Sweden","Japan","Australia","Netherlands","Canada","Norway","Hungary","Finland","Switzerland","Austria","Spain","Poland","Romania","Cuba","Bulgaria","Denmark","Ukraine","Belgium","Brazil","Greece","New Zealand","Czechia","Turkey","Kenya","Belarus","Argentina","Kazakhstan","South Africa","Mexico","Iran","Jamaica"],
-          "labels":["— Select a country here —"],
-          "element":"#donut-controls"
-        }
-      }
-    ],
-    "transform":[
-      {"filter":"country_sel != null ? datum.country == country_sel : false"},
-      {"fold":["OlympicMedalsGold","OlympicMedalsSilver","OlympicMedalsBronze"],"as":["MedalType","Count"]},
-      {"calculate":"replace(replace(replace(datum.MedalType,'OlympicMedals',''),'Total_2022','Total'),'YouthTotal','Youth')","as":"Medal"}
-    ],
-    "mark":{"type":"arc","innerRadius":95,"outerRadius":150},
-    "encoding":{
-      "theta":{"field":"Count","type":"quantitative"},
-      "color":{
-        "field":"Medal","type":"nominal",
-        "scale":{"domain":["Gold","Silver","Bronze"],"range":["#d4af37","#c0c0c0","#cd7f32"]},
-        "title":"Medal"
-      },
-      "tooltip":[{"field":"Medal"},{"field":"Count","type":"quantitative"}]
-    },
-    "view":{"stroke":null}
-  };
+        "title": {"text": "Medal Mix by Country (One Donut per Country)", "fontSize": 16},
+        
+        "width": 280,
+        "height": 280,
+        "data": {
+          "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"
+        },
+        "transform": [
+          {"filter": "datum.country && datum.country != 'Total'"},
+          {
+            "fold": ["OlympicMedalsGold", "OlympicMedalsSilver", "OlympicMedalsBronze"],
+            "as": ["MedalType", "Count"]
+          },
+          {
+            "calculate": "datum.MedalType == 'OlympicMedalsGold' ? 'Gold' : datum.MedalType == 'OlympicMedalsSilver' ? 'Silver' : 'Bronze'",
+            "as": "Medal"
+          },
+          {"aggregate": [{"op": "sum", "field": "Count", "as": "Count"}], "groupby": ["country", "Medal"]},
+          {"joinaggregate": [{"op": "sum", "field": "Count", "as": "Total"}], "groupby": ["country"]},
+          {"calculate": "round(datum.Count / datum.Total * 100)", "as": "Pct"}
+        ],
+        "layer": [
+          {
+            "transform": [{"filter": "country_sel == null"}],
+            "mark": {"type": "arc", "innerRadius": 70, "outerRadius": 130, "color": "#e0e0e0"},
+            "encoding": {"theta": {"value": 7}}
+          },
+          {
+            "transform": [{"filter": "country_sel == null"}],
+            "mark": {"type": "text", "radius": 0, "dy": 5, "fontSize": 14, "fontWeight": "bold"},
+            "encoding": {"text": {"value": "Select a country"}, "color": {"value": "#666"}}
+          },
+          {
+            "transform": [{"filter": "datum.country == country_sel"}],
+            "mark": {"type": "arc", "innerRadius": 50, "outerRadius": 100},
+            "encoding": {
+              "theta": {"field": "Count", "type": "quantitative", "stack": true},
+              "color": {
+                "field": "Medal",
+                "type": "nominal",
+                "sort": ["Gold", "Silver", "Bronze"],
+                "scale": {"range": ["#d4af37", "#c0c0c0", "#cd7f32"]},
+                "legend": {
+                  "title": "Medal Type",
+                  "orient": "right",
+                  "offset": 0,
+                  "symbolType": "circle"
+                }
+              },
+              "tooltip": [
+                {"field": "country", "title": "Country"},
+                {"field": "Medal", "title": "Medal"},
+                {"field": "Count", "title": "Medals"},
+                {"field": "Pct", "title": "Share (%)"},
+                {"field": "Total", "title": "Total"}
+              ]
+            }
+          },
+          {
+            "transform": [{"filter": "datum.country == country_sel"}],
+            "mark": {"type": "text", "radius": 0, "dy": 5, "fontSize": 12, "fontWeight": "bold"},
+            "encoding": {"text": {"field": "country"}}
+          },
+     
+        ]
+      };
 
   // ---------- BAR (Season picker under chart) ----------
   const barSpec = {
