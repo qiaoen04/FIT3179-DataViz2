@@ -6,39 +6,128 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <style>
-    .wrap{max-width:1150px;margin:auto;display:grid;grid-template-columns:1fr;gap:24px}
-    .card{background:#fff;border-radius:10px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    .wrap{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:24px}
+    .full{grid-column:1 / -1}
+    .card{background:#fff;border-radius:12px;padding:14px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
     .controls{margin-top:10px}
     .controls label{margin-right:8px}
+    h3{margin:6px 0 12px 4px}
   </style>
 </head>
 <body>
-<div class="wrap">
 
-  <!-- BAR CHART ----------------------------------------------------------->
+<div class="wrap">
+  <!-- MAP (left) -->
   <div class="card">
-    <h3>Participation — filter by Season (below)</h3>
-    <div id="bar-view"></div>
-    <div id="bar-controls" class="controls"></div>
+    <h3>Olympic Medals by Country (Total)</h3>
+    <div id="map-view"></div>
+    <!-- map has no control UI -->
   </div>
 
-  <!-- DONUT CHART --------------------------------------------------------->
+  <!-- DONUT (right) -->
   <div class="card">
-    <h3>Medal Mix by Country — pick a country (below)</h3>
+    <h3>Medal Mix — Select a Country (control below)</h3>
     <div id="donut-view"></div>
     <div id="donut-controls" class="controls"></div>
   </div>
 
+  <!-- BAR (bottom, full width) -->
+  <div class="card full">
+    <h3>Participation by Year — Stacked by Sex (control below)</h3>
+    <div id="bar-view"></div>
+    <div id="bar-controls" class="controls"></div>
+  </div>
 </div>
 
 <script>
-  // -------- Bar chart (athlete_events.csv): stacked by Sex, filtered by Season
+  // ---------- MAP (choropleth) ----------
+  // Uses world topojson + name TSV, then looks up olympic.csv by country name
+  const mapSpec = {
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "width":540, "height":330,
+    "data":{
+      "url":"https://vega.github.io/vega/datasets/world-110m.json",
+      "format":{"type":"topojson","feature":"countries"}
+    },
+    "projection":{"type":"equalEarth"},
+    "transform":[
+      {
+        "lookup":"id",
+        "from":{
+          "data":{"url":"https://vega.github.io/vega/datasets/world-110m-country-names.tsv"},
+          "key":"id",
+          "fields":["name"]
+        }
+      },
+      {
+        "lookup":"name",
+        "from":{
+          "data":{"url":"https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"},
+          "key":"country",
+          "fields":["OlympicMedalsTotal_2022","OlympicMedalsGold","OlympicMedalsSilver","OlympicMedalsBronze","country"]
+        }
+      }
+    ],
+    "mark":{"type":"geoshape","stroke":"#fff","strokeWidth":0.5},
+    "encoding":{
+      "color":{
+        "field":"OlympicMedalsTotal_2022","type":"quantitative",
+        "title":"Total medals",
+        "scale":{"type":"sqrt","nice":true}
+      },
+      "tooltip":[
+        {"field":"name","title":"Country"},
+        {"field":"OlympicMedalsTotal_2022","title":"Total","type":"quantitative"},
+        {"field":"OlympicMedalsGold","title":"Gold","type":"quantitative"},
+        {"field":"OlympicMedalsSilver","title":"Silver","type":"quantitative"},
+        {"field":"OlympicMedalsBronze","title":"Bronze","type":"quantitative"}
+      ]
+    },
+    "view":{"stroke":null}
+  };
+
+  // ---------- DONUT (country picker under chart) ----------
+  const donutSpec = {
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "data":{"url":"https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"},
+    "width":540,"height":330,
+    "params":[
+      {
+        "name":"country_sel",
+        "value": null,
+        "bind":{
+          "input":"select",
+          "name":"Country: ",
+          "options":[null,"United States of America","Germany","France","United Kingdom","China","Italy","Russia","Sweden","Japan","Australia","Netherlands","Canada","Norway","Hungary","Finland","Switzerland","Austria","Spain","Poland","Romania","Cuba","Bulgaria","Denmark","Ukraine","Belgium","Brazil","Greece","New Zealand","Czechia","Turkey","Kenya","Belarus","Argentina","Kazakhstan","South Africa","Mexico","Iran","Jamaica"],
+          "labels":["— Select a country —"],
+          "element":"#donut-controls"
+        }
+      }
+    ],
+    "transform":[
+      {"filter":"country_sel != null ? datum.country == country_sel : false"},
+      {"fold":["OlympicMedalsGold","OlympicMedalsSilver","OlympicMedalsBronze"],"as":["MedalType","Count"]},
+      {"calculate":"replace(replace(replace(datum.MedalType,'OlympicMedals',''),'Total_2022','Total'),'YouthTotal','Youth')","as":"Medal"}
+    ],
+    "mark":{"type":"arc","innerRadius":95,"outerRadius":150},
+    "encoding":{
+      "theta":{"field":"Count","type":"quantitative"},
+      "color":{
+        "field":"Medal","type":"nominal",
+        "scale":{"domain":["Gold","Silver","Bronze"],"range":["#d4af37","#c0c0c0","#cd7f32"]},
+        "title":"Medal"
+      },
+      "tooltip":[{"field":"Medal"},{"field":"Count","type":"quantitative"}]
+    },
+    "view":{"stroke":null}
+  };
+
+  // ---------- BAR (Season picker under chart) ----------
   const barSpec = {
     "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-    "data":{
-      "url":"https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/athlete_events.csv"
-    },
-    "width":1000, "height":360,
+    "data":{"url":"https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/athlete_events.csv"},
+    "width":1120,"height":360,
     "params":[
       {
         "name":"season_selection",
@@ -56,58 +145,17 @@
       {"filter":"!season_selection || datum.Season == season_selection"},
       {"aggregate":[{"op":"count","as":"Entries"}],"groupby":["Year","Sex"]}
     ],
+    "mark":"bar",
     "encoding":{
       "x":{"field":"Year","type":"ordinal","title":"Year","axis":{"labelAngle":0}},
-      "y":{"field":"Entries","type":"quantitative"},
+      "y":{"field":"Entries","type":"quantitative","title":"Entries"},
       "color":{"field":"Sex","type":"nominal","scale":{"range":["#f3a6c6","#8fb9ff"]}}
-    },
-    "mark":{"type":"bar"}
+    }
   };
 
-  // -------- Donut chart (olympic.csv): medal composition for selected country
-  const donutSpec = {
-    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-    "data":{
-      "url":"https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"
-    },
-    "width":420,"height":320,
-    "params":[
-      {
-        "name":"country_sel",
-        "value": null,
-        "bind":{
-          "input":"select",
-          "name":"Country: ",
-          "options":[null,"United States of America","Germany","France","United Kingdom","China","Italy","Russia","Sweden","Japan","Australia","Netherlands","Canada","Norway","Hungary","Finland","Switzerland","Austria","Spain","Poland","Romania","Cuba","Bulgaria","Denmark","Ukraine","Belgium","Brazil","Greece","New Zealand","Czechia","Turkey","Kenya","Belarus","Argentina","Kazakhstan","South Africa","Mexico","Iran","Jamaica"],
-          "labels":["— Select a country —"],
-          "element":"#donut-controls"
-        }
-      }
-    ],
-    "transform":[
-      {"filter":"country_sel != null ? datum.country == country_sel : false"},
-      {"fold":["OlympicMedalsGold","OlympicMedalsSilver","OlympicMedalsBronze"],
-       "as":["MedalType","Count"]},
-      {"calculate":"replace(replace(replace(datum.MedalType,'OlympicMedals',''),'Total_2022','Total'),'YouthTotal','Youth')","as":"MedalTypeClean"}
-    ],
-    "view":{"stroke":null},
-    "encoding":{
-      "theta":{"field":"Count","type":"quantitative","stack":true},
-      "color":{
-        "field":"MedalTypeClean","type":"nominal",
-        "scale":{"domain":["Gold","Silver","Bronze"],"range":["#d4af37","#c0c0c0","#cd7f32"]},
-        "title":"Medal"
-      },
-      "tooltip":[
-        {"field":"MedalTypeClean","title":"Medal"},
-        {"field":"Count","type":"quantitative"}
-      ]
-    },
-    "mark":{"type":"arc","innerRadius":90, "outerRadius":150}
-  };
-
-  vegaEmbed("#bar-view", barSpec, {actions:false});
+  vegaEmbed("#map-view", mapSpec, {actions:false});
   vegaEmbed("#donut-view", donutSpec, {actions:false});
+  vegaEmbed("#bar-view", barSpec, {actions:false});
 </script>
 </body>
 </html>
