@@ -135,33 +135,98 @@
 
   // ---------- BAR (Season picker under chart) ----------
   const barSpec = {
-    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-    "data":{"url":"https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/athlete_events.csv"},
-    "width":1120,"height":360,
-    "params":[
-      {
-        "name":"season_selection",
-        "value": null,
-        "bind":{
-          "input":"select",
-          "options":[null,"Summer","Winter"],
-          "labels":["— All seasons —","Summer","Winter"],
-          "name":"Season: ",
-          "element":"#bar-controls"
+      "title": "Participation — Summer (Stacked Bars) + Winter (Lines)",
+      "width": 1200,
+      "height": 420,
+      "data": {
+        "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/athlete_events.csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {"filter": "isValid(datum.Year) && datum.Sex != null && datum.Season != null"},
+        {"aggregate": [{"op":"count","as":"Entries"}], "groupby": ["Year","Sex","Season"]}
+      ],
+      "encoding": {
+        "x": {"field": "Year", "type": "quantitative", "axis": {"format": "d", "title": "Year"}},
+        "color": {
+  "field": "Sex",
+  "type": "nominal",
+  "scale": {"domain": ["F", "M"], "range": ["#f0add5", "#8bc8f0"]},
+  "legend": {
+    "title": "Sex",
+    "orient": "right",
+    "direction": "vertical",
+    "titleFontSize": 12,
+    "labelFontSize": 11,
+    "symbolType": "circle",
+    "offset": 10
+  }
+}
+
+
+
+      },
+      "layer": [
+        {
+          "name": "Summer (stacked bars)",
+          "transform": [{"filter": "datum.Season == 'Summer'"}],
+          "mark": {"type": "bar"},
+          "encoding": {
+            "y": {"field": "Entries", "type": "quantitative", "title": "Entries"},
+            "size": {"value": 25},
+            "opacity": {
+              "condition": {"test": "season_selection == null || season_selection == 'Summer'", "value": 0.9},
+              "value": 0
+            },
+            "tooltip": [
+              {"field":"Year","type":"quantitative","format":"d","title":"Year"},
+              {"field":"Season","type":"nominal","title":"Season"},
+              {"field":"Sex","type":"nominal"},
+              {"field":"Entries","type":"quantitative","format":",","title":"Entries"}
+            ]
+          }
+        },
+        {
+          "name": "Winter (lines)",
+          "transform": [{"filter": "datum.Season == 'Winter'"}],
+          "mark": {"type": "line", "point": true, "strokeWidth": 2},
+          "encoding": {
+            "y": {"field": "Entries", "type": "quantitative"},
+            "opacity": {
+              "condition": {"test": "season_selection == null || season_selection == 'Winter'", "value": 1},
+              "value": 0
+            },
+            "tooltip": [
+              {"field":"Year","type":"quantitative","format":"d","title":"Year"},
+              {"field":"Season","type":"nominal","title":"Season"},
+              {"field":"Sex","type":"nominal"},
+              {"field":"Entries","type":"quantitative","format":",","title":"Entries"}
+            ]
+          }
+        },
+        {
+          "name": "Summer total labels (all years)",
+          "transform": [
+            {"filter": "datum.Season == 'Summer'"},
+            {"aggregate": [{"op": "sum", "field": "Entries", "as": "Total"}], "groupby": ["Year"]}
+          ],
+          "mark": {"type": "text", "dy": -6, "fontSize": 11, "stroke": "black", "strokeWidth": 1},
+          "encoding": {
+            "x": {"field": "Year", "type": "quantitative"},
+            "y": {"field": "Total", "type": "quantitative"},
+            "text": {"field": "Total", "type": "quantitative", "format": ",d"},
+            "opacity": {
+              "condition": {"test": "season_selection == null || season_selection == 'Summer'", "value": 1},
+              "value": 0
+            },
+            "tooltip": [
+              {"field": "Year", "type": "quantitative", "format": "d", "title": "Year"},
+              {"field": "Total", "type": "quantitative", "format": ",d", "title": "Summer total"}
+            ]
+          }
         }
-      }
-    ],
-    "transform":[
-      {"filter":"!season_selection || datum.Season == season_selection"},
-      {"aggregate":[{"op":"count","as":"Entries"}],"groupby":["Year","Sex"]}
-    ],
-    "mark":"bar",
-    "encoding":{
-      "x":{"field":"Year","type":"ordinal","title":"Year","axis":{"labelAngle":0}},
-      "y":{"field":"Entries","type":"quantitative","title":"Entries"},
-      "color":{"field":"Sex","type":"nominal","scale":{"range":["#f3a6c6","#8fb9ff"]}}
-    }
-  };
+      ]
+    };
 
   vegaEmbed("#map-view", mapSpec, {actions:false});
   vegaEmbed("#donut-view", donutSpec, {actions:false});
