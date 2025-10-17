@@ -20,35 +20,72 @@
 <div class="wrap">
   <!-- MAP (left) -->
   <div class="card">
-    <h3>Olympic Medals by Country (Total)</h3>
+    <h3>Where Do the Medals Live?</h3>
+    <p class="sub">Total medals earned by each nation across modern Olympics.</p>
     <div id="map-view"></div>
+    <ul class="obs">
+      <li>Medals concentrate among a handful of long-participating nations.</li>
+      <li>Europe & North America dominate, with strong pockets in East Asia/Oceania.</li>
+      <li>Lighter tones show smaller or newer NOCs.</li>
+    </ul>
   </div>
+
 
   <!-- DONUT (right) -->
   <div class="card">
-    <h3>Medal Mix — Select a Country (control below)</h3>
+    <h3>Gold–Silver–Bronze Split</h3>
+    <p class="sub">Pick a country to see its medal composition.</p>
     <div id="donut-view"></div>
     <div id="donut-controls" class="controls"></div>
+    <p class="tip">Tip: Try USA, China, or Norway for contrasts.</p>
+    <ul class="obs">
+      <li>Balanced splits = broad strengths; emerging teams often skew bronze.</li>
+      <li>High gold share signals dominance in select events.</li>
+      <li>Similar totals can hide different “quality” mixes.</li>
+    </ul>
   </div>
+
 
   <!-- BAR (bottom, full width) -->
   <div class="card full">
-    <h3>Participation by Year — Stacked by Sex (control below)</h3>
+    <h3>How Athlete Participation Grew</h3>
+    <p class="sub">Summer = stacked bars; Winter = lines. Use the selector to focus.</p>
     <div id="bar-view"></div>
     <div id="bar-controls" class="controls"></div>
+    <ul class="obs">
+      <li>Sharp growth post mid-20th century.</li>
+      <li>Women’s share rises steadily.</li>
+      <li>Winter is lower overall but trends similarly.</li>
+    </ul>
   </div>
+
 
   <!-- HEATMAP (bottom, full width) -->
 <div class="card full">
-  <h3>Medals by Sport × Country (Top 20)</h3>
+  <h3>Specialisations by Nation</h3>
+  <p class="sub">Darker cells = more medals for that country–sport pair.</p>
   <div id="heatmap-view"></div>
+  <p class="tip">Hover cells to compare focus vs overall totals.</p>
+  <ul class="obs">
+    <li>“Stripes” reveal national specialisations.</li>
+    <li>Some countries cluster medals in a few disciplines.</li>
+    <li>Dark outliers show unexpected strengths.</li>
+  </ul>
 </div>
+
 
 <!-- AGE & BMI (full width) -->
 <div class="card full">
-  <h3>Age & BMI by Medal (Boxplots)</h3>
+  <h3>Who Reaches the Podium?</h3>
+  <p class="sub">Distribution of Age and BMI among medal winners.</p>
   <div id="age-bmi-view"></div>
+  <ul class="obs">
+    <li>Median ages across medal types are similar; extremes are rare.</li>
+    <li>BMI spans widely, reflecting sport diversity.</li>
+    <li>Gold distributions are tighter—peak performance bands.</li>
+  </ul>
 </div>
+
 
 
 <script>
