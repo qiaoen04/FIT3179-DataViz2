@@ -6,36 +6,156 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <style>
-  body{
-    margin:0;
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-    background:#0b1e3a;               
-  }
-  .wrap{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:24px}
-  .full{grid-column:1 / -1}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      background:#0b1e3a;               
+    }
+    .wrap {
+  max-width: 1200px;               /* fixed total width */
+  margin: 0 auto;                  /* center whole grid */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding: 24px;
+  align-items: start;              /* keep card tops aligned */
+  justify-content: center;         /* keeps overall layout centered */
+}
 
-  /* Cards */
-  .card{
-    background:#fff;                   /* ← white cards */
-    border-radius:12px;
-    padding:14px;
-    box-shadow:0 6px 24px rgba(0,0,0,.2);
-  }
 
-  /* Optional: a simple header that sits on dark blue */
-  header{color:#fff;text-align:center;padding:28px 0 8px}
-  h3{margin:6px 0 12px 4px;color:#0b1e3a}  /* dark title inside white cards */
-  .sub,.obs,.tip{color:#2b2b2b}
-</style>
+
+    .full{grid-column:1 / -1}
+
+    /* Cards */
+    .card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  width: 100%;                     /* ensure both top cards have equal width */
+  box-sizing: border-box;
+}
+
+.full {
+  grid-column: 1 / -1;             /* span full width */
+  width: 100%;                     /* align perfectly with top cards */
+}
+.wrap {
+  grid-template-columns: 1fr 1fr;  /* exact equal width */
+}
+
+
+
+    /* Optional: a simple header that sits on dark blue */
+    header{color:#fff;text-align:center;padding:28px 0 8px}
+    h3{margin:6px 0 12px 4px;color:#0b1e3a}  /* dark title inside white cards */
+    .sub,.obs,.tip{color:#2b2b2b}
+
+    /* Center the big charts inside their white cards */
+    /* Center big charts by default */
+    #bar-view,
+    #age-bmi-view {
+      display: flex;
+      justify-content: center;
+    }
+
+    #bar-view .vega-embed,
+    #age-bmi-view .vega-embed {
+      margin: 0 auto;
+      max-width: 1120px;
+      width: 100%;
+    }
+
+    /* Make the heatmap align left */
+    #heatmap-view {
+      display: flex;
+      justify-content: flex-start;  /* left align */
+    }
+
+    #heatmap-view .vega-embed {
+      margin-left: 0;
+      margin-right: auto;
+      max-width: 1120px;
+      width: 100%;
+    }
+
+
+    /* Make the embedded chart honor a max width and center itself */
+    #bar-view .vega-embed,
+    #heatmap-view .vega-embed,
+    #age-bmi-view .vega-embed {
+      margin: 0 auto;      /* horizontally center */
+      max-width: 1120px;   /* keep it neat on wide screens */
+      width: 100%;         /* shrink nicely on small screens */
+    }
+    /* Heatmap two-column layout */
+.heatmap-card .heatmap-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* chart wider than text */
+  gap: 24px;
+  align-items: center;
+}
+
+.heatmap-card .chart-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.heatmap-card .text-side {
+  padding-top: 40px; /* optional spacing to align visually */
+}
+
+.heatmap-card .text-side ul {
+  margin-top: 8px;
+}
+/* Main header styling */
+/* Main header */
+.main-header {
+  background: #0b1e3a;
+}
+
+/* Use same width as .wrap so centering matches the cards */
+.main-header .container {
+  max-width: 1200px;      /* <- same as .wrap */
+  margin: 0 auto;         /* center the header content block */
+  text-align: center;     /* center the text inside */
+  padding: 40px 24px 20px;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 80px;        /* adjust if you like */
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.main-header p {
+  margin-top: 8px;
+  font-size: 25px;
+  color: #dce4f7;
+}
+/* Bigger title just for the map card */
+.title-lg{
+  font-size: 26px;      /* tweak to taste: 24–30px works well */
+  line-height: 1.2;
+  margin: 6px 0 12px 4px; /* keep your current spacing */
+  font-weight: 700;
+}
+
+
+
+  </style>
 
 </head>
 <body>
+  
 <!-- MAIN PAGE TITLE -->
-<header style="text-align:center; padding:28px 0 8px 0; background:#f8fafc;">
-  <h1 style="margin:0; font-size:28px; font-weight:700;">The Olympic Story in Data</h1>
-  <p style="margin:6px 0 0 0; font-size:16px; color:#555;">
-    Exploring medals, participation, and performance across nations and time.
-  </p>
+<header class="main-header">
+  <div class="container">
+    <h1>The Olympic Story in Data</h1>
+    <p>Exploring medals, participation, and performance across nations and time.</p>
+  </div>
 </header>
 
 <div class="wrap">
@@ -82,17 +202,24 @@
   </div>
 
 
-  <!-- HEATMAP (bottom, full width) -->
-<div class="card full">
-  <h3>Specialisations by Nation</h3>
-  <p class="sub">Darker cells = more medals for that country–sport pair.</p>
-  <div id="heatmap-view"></div>
-  <p class="tip">Hover cells to compare focus vs overall totals.</p>
-  <ul class="obs">
-    <li>“Stripes” reveal national specialisations.</li>
-    <li>Some countries cluster medals in a few disciplines.</li>
-    <li>Dark outliers show unexpected strengths.</li>
-  </ul>
+<!-- HEATMAP (bottom, full width) -->
+<div class="card full heatmap-card">
+  <div class="heatmap-grid">
+    <div class="chart-side">
+      <h3>Specialisations by Nation</h3>
+      <p class="sub">Darker cells = more medals for that country–sport pair.</p>
+      <div id="heatmap-view"></div>
+    </div>
+
+    <div class="text-side">
+      <p class="tip"><strong>Hover</strong> cells to compare focus vs overall totals.</p>
+      <ul class="obs">
+        <li>“Stripes” reveal national specialisations.</li>
+        <li>Some countries cluster medals in a few disciplines.</li>
+        <li>Dark outliers show unexpected strengths.</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 
@@ -115,8 +242,8 @@
 const mapSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Olympic Medals (Normalized by Top Country)",
-  "width": 540,
-  "height": 330,
+  "width": 900,
+  "height": 400,
   "projection": {"type": "equalEarth"},
   "layer": [
     { 
@@ -173,107 +300,146 @@ const mapSpec = {
 };
 
 
-  // ---------- DONUT (country picker under chart) ----------
+    // ---------- DONUT (country picker under chart) ----------
 const donutSpec = {
-  "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {"text": "Medal Mix by Country", "fontSize": 16},
-  "width": 540,
-  "height": 330,
+  "width": 500,
+  "height": 350,
   "data": {
     "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"
   },
 
-  "params":[
+  "params": [
     {
-      "name":"country_sel",
-      "value":"United States of America",   // <-- default selection
-      "bind":{
-        "input":"select",
-        "name":" Country: ",
-        "options":[
-          "Afghanistan","Algeria","Andorra","Argentina","Armenia","Australia","Austria",
-          "Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium",
-          "Bermuda","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil",
-          "Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Chile",
-          "China","Colombia","Costa Rica","Croatia","Cuba","Cyprus","Czechia","Denmark",
-          "Djibouti","Dominican Republic","Ecuador","Egypt","El Salvador","Eritrea",
-          "Estonia","Ethiopia","Fiji","Finland","France","Gabon","Georgia","Germany",
-          "Ghana","Greece","Grenada","Guatemala","Guyana","Haiti","Hong Kong S.A.R",
-          "Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy",
-          "Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyzstan","Latvia",
-          "Lebanon","Liechtenstein","Lithuania","Luxembourg","Malaysia","Mexico","Moldova",
-          "Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia",
-          "Nauru","Netherlands","New Zealand","Nigeria","North Korea","North Macedonia",
-          "Norway","Pakistan","Panama","Paraguay","Peru","Philippines","Poland","Portugal",
-          "Puerto Rico","Qatar","Romania","Russia","San Marino","Saudi Arabia","Senegal",
-          "Serbia","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain",
-          "Sri Lanka","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan",
-          "Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan",
-          "Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America",
-          "Uruguay","Uzbekistan","Venezuela","Vietnam","Zambia","Zimbabwe"
+      "name": "country_sel",
+      "value": "United States of America",
+      "bind": {
+        "input": "select",
+        "name": " Country: ",
+        "options": [
+          "United States of America","Germany","France","United Kingdom","China",
+          "Italy","Russia","Japan","Australia","Canada","Sweden","Norway",
+          "Netherlands","Finland","Switzerland","South Korea","Spain","Poland",
+          "Hungary","Brazil","Greece","New Zealand","Cuba","Austria","Belgium"
         ],
-        "element":"#donut-controls"
+        "element": "#donut-controls"
       }
     }
   ],
 
   "transform": [
     {"filter": "datum.country && datum.country != 'Total'"},
-    {"fold": ["OlympicMedalsGold","OlympicMedalsSilver","OlympicMedalsBronze"], "as": ["MedalType","Count"]},
-    {"calculate": "datum.MedalType == 'OlympicMedalsGold' ? 'Gold' : datum.MedalType == 'OlympicMedalsSilver' ? 'Silver' : 'Bronze'", "as": "Medal"},
-    {"aggregate": [{"op":"sum","field":"Count","as":"Count"}], "groupby":["country","Medal"]},
-    {"joinaggregate": [{"op":"sum","field":"Count","as":"Total"}], "groupby":["country"]},
-    {"calculate": "round(datum.Count / datum.Total * 100)", "as": "Pct"}
+    {
+      "fold": [
+        "OlympicMedalsGold",
+        "OlympicMedalsSilver",
+        "OlympicMedalsBronze"
+      ],
+      "as": ["MedalType", "Count"]
+    },
+    {
+      "calculate":
+        "datum.MedalType == 'OlympicMedalsGold' ? 'Gold' : datum.MedalType == 'OlympicMedalsSilver' ? 'Silver' : 'Bronze'",
+      "as": "Medal"
+    },
+    {
+      "aggregate": [{"op": "sum", "field": "Count", "as": "Count"}],
+      "groupby": ["country", "Medal"]
+    }
   ],
 
   "layer": [
-    // (Optional) You can delete the placeholder ring since we now have a default selection.
-    {
-      "transform": [{"filter": "country_sel == null"}],
-      "mark": {"type":"arc","innerRadius":90,"outerRadius":150,"color":"#e0e0e0"},
-      "encoding": {"theta": {"value": 6.283}}
-    },
-    {
-      "transform": [{"filter": "country_sel == null"}],
-      "mark": {"type":"text","radius":0,"dy":5,"fontSize":14,"fontWeight":"bold"},
-      "encoding": {"text": {"value":"Select a country"}, "color":{"value":"#666"}}
-    },
-
+    /* Donut slices */
     {
       "transform": [{"filter": "datum.country == country_sel"}],
-      "mark": {"type":"arc","innerRadius":90,"outerRadius":150},
+      "mark": {"type": "arc", "innerRadius": 90, "outerRadius": 150},
       "encoding": {
-        "theta": {"field":"Count","type":"quantitative"},
+        "theta": {"field": "Count", "type": "quantitative"},
         "color": {
-          "field":"Medal","type":"nominal",
-          "sort":["Gold","Silver","Bronze"],
-          "scale":{"range":["#d4af37","#c0c0c0","#cd7f32"]},
-          "title":"Medal Type"
+          "field": "Medal",
+          "type": "nominal",
+          "sort": ["Gold", "Silver", "Bronze"],
+          "scale": {"range": ["#d4af37", "#c0c0c0", "#cd7f32"]},
+          "title": "Medal Type"
         },
         "tooltip": [
-          {"field":"country","title":"Country"},
-          {"field":"Medal","title":"Medal"},
-          {"field":"Count","title":"Medals"},
-          {"field":"Pct","title":"Share (%)"},
-          {"field":"Total","title":"Total"}
+          {"field": "country", "title": "Country"},
+          {"field": "Medal", "title": "Medal"},
+          {"field": "Count", "title": "Medals"}
         ]
       }
     },
+
+    /* Country name below the donut */
+{
+  "transform": [
+    {"filter": "datum.country == country_sel"},
+    {"aggregate": [{"op":"max","field":"country","as":"cc"}]}
+  ],
+  "mark": {"type":"text","fontSize":14,"fontWeight":"bold","align":"center","baseline":"top"},
+  "encoding": {
+    "x": {"value": 250},   // half of width (500/2)
+    "y": {"value": 340},   // near bottom; adjust if needed
+    "text": {"field": "cc"},
+    "color": {"value":"#111"}
+  }
+}
+
+
+    /* Gold: xxx */
     {
-      "transform": [{"filter": "datum.country == country_sel"}],
-      "mark": {"type":"text","radius":0,"dy":5,"fontSize":12,"fontWeight":"bold"},
-      "encoding": {"text": {"field":"country"}}
+      "transform": [
+        {"filter": "datum.country == country_sel && datum.Medal == 'Gold'"},
+        {"calculate": "'Gold: ' + format(datum.Count, ',d')", "as": "label"}
+      ],
+      "mark": {"type": "text", "fontSize": 12, "align": "center", "baseline": "middle"},
+      "encoding": {
+        "x": {"value": 250},
+        "y": {"value": 160},
+        "text": {"field": "label"},
+        "color": {"value": "#d4af37"}
+      }
+    },
+
+    /* Silver: xxx */
+    {
+      "transform": [
+        {"filter": "datum.country == country_sel && datum.Medal == 'Silver'"},
+        {"calculate": "'Silver: ' + format(datum.Count, ',d')", "as": "label"}
+      ],
+      "mark": {"type": "text", "fontSize": 12, "align": "center", "baseline": "middle"},
+      "encoding": {
+        "x": {"value": 250},
+        "y": {"value": 180},
+        "text": {"field": "label"},
+        "color": {"value": "#9a9a9a"}
+      }
+    },
+
+    /* Bronze: xxx */
+    {
+      "transform": [
+        {"filter": "datum.country == country_sel && datum.Medal == 'Bronze'"},
+        {"calculate": "'Bronze: ' + format(datum.Count, ',d')", "as": "label"}
+      ],
+      "mark": {"type": "text", "fontSize": 12, "align": "center", "baseline": "middle"},
+      "encoding": {
+        "x": {"value": 250},
+        "y": {"value": 200},
+        "text": {"field": "label"},
+        "color": {"value": "#cd7f32"}
+      }
     }
   ]
 };
-
 
   // ---------- BAR (Season picker under chart) ----------
   const barSpec = {
     "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Participation — Summer (Stacked Bars) + Winter (Lines)",
-    "width": 1120,
-    "height": 420,
+    "width": 1500,
+    "height": 600,
     "data": {
       "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/athlete_events.csv",
       "format": {"type": "csv"}
@@ -285,7 +451,7 @@ const donutSpec = {
         "bind":{
           "input":"select",
           "options":[null,"Summer","Winter"],
-          "labels":["— All seasons —","Summer","Winter"],
+          "labels":["- All seasons -","Summer","Winter"],
           "name":"Season: ",
           "element":"#bar-controls"
         }
@@ -367,12 +533,7 @@ const donutSpec = {
   "data": {
     "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/refs/heads/main/top21_country_20sport_medals.csv"
   },
-  "transform": [
-    {
-  "calculate": "datum.Medals / datum.CountryTotal", "as": "MedalsNormalized"
-}
-
-  ],
+  
 
   "mark": "rect",
 
@@ -428,7 +589,7 @@ const ageBmiSpec = {
   "hconcat": [
     {
       "mark": {"type": "boxplot", "size": 70},
-      "width": 520,
+      "width": 700,
       "height": 360,
       "encoding": {
         "x": {"field": "Medal", "type": "nominal", "title": "Medal Type", "sort": ["Gold","Silver","Bronze"]},
@@ -443,7 +604,7 @@ const ageBmiSpec = {
     },
     {
       "mark": {"type": "boxplot", "size": 70},
-      "width": 520,
+      "width": 700,
       "height": 360,
       "encoding": {
         "x": {"field": "Medal", "type": "nominal", "title": "Medal Type", "sort": ["Gold","Silver","Bronze"]},
@@ -457,6 +618,7 @@ const ageBmiSpec = {
       }
     }
   ],
+  "spacing":100,
   // You asked for independent color resolution — included for completeness
   "resolve": {
     "scale": {"color": "independent"},
