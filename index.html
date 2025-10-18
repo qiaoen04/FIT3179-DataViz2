@@ -367,6 +367,12 @@ const donutSpec = {
   "data": {
     "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/refs/heads/main/top21_country_20sport_medals.csv"
   },
+  "transform": [
+    {
+  "calculate": "datum.Medals / datum.CountryTotal", "as": "MedalsNormalized"
+}
+
+  ],
 
   "mark": "rect",
 
