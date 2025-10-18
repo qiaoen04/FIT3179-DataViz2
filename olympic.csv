@@ -84,18 +84,18 @@
 "UY","Uruguay",11,3,2,6,1
 "QA","Qatar",11,4,3,4,3
 "LI","Liechtenstein",11,2,2,7,1
-"ZW","Zimbabwe",8,6,4,1,
-"LU","Luxembourg",8,3,5,,1
+"ZW","Zimbabwe",8,6,4,1,0
+"LU","Luxembourg",8,3,5,0,1
 "PE","Peru",7,2,3,2,3
 "GH","Ghana",6,1,1,4,1
-"CM","Cameroon",6,3,1,2,
+"CM","Cameroon",6,3,1,2,0
 "JO","Jordan",6,1,2,3,3
 "TJ","Tajikistan",6,1,2,3,2
 "BH","Bahrain",6,2,3,1,2
 "IS","Iceland",6,1,2,3,2
 "ZM","Zambia",5,1,2,2,3
-"LB","Lebanon",5,,2,3,1
-"NA","Namibia",5,,5,,
+"LB","Lebanon",5,0,2,3,1
+"NA","Namibia",5,0,5,0,0
 "CI","Côte d'Ivoire",4,1,1,2,0
 "SY","Syria",4,1,1,2,0
 "BI","Burundi",4,2,2,0,2
@@ -110,7 +110,7 @@
 "LK","Sri Lanka",3,0,2,1,1
 "HT","Haiti",3,0,2,1,1
 "AE","United Arab Emirates",3,1,1,1,1
-"PA","Panama",3,1,0,2,
+"PA","Panama",3,1,0,2,0
 "MK","North Macedonia",3,0,1,2,1
 "CY","Cyprus",3,0,3,0,2
 "SR","Suriname",3,2,0,1,1
