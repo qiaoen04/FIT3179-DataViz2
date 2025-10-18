@@ -5,6 +5,9 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
   <style>
     body{
       margin:0;
@@ -12,14 +15,14 @@
       background:#0b1e3a;               
     }
     .wrap {
-  max-width: 1200px;               /* fixed total width */
-  margin: 0 auto;                  /* center whole grid */
+  max-width: 1200px;              
+  margin: 0 auto;                 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   padding: 24px;
-  align-items: start;              /* keep card tops aligned */
-  justify-content: center;         /* keeps overall layout centered */
+  align-items: start;              
+  justify-content: center;         
 }
 
 
@@ -32,27 +35,37 @@
   border-radius: 12px;
   padding: 14px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
-  width: 100%;                     /* ensure both top cards have equal width */
+  width: 100%;                    
   box-sizing: border-box;
 }
 
 .full {
-  grid-column: 1 / -1;             /* span full width */
-  width: 100%;                     /* align perfectly with top cards */
+  grid-column: 1 / -1;         
+  width: 100%;                    
 }
 .wrap {
-  grid-template-columns: 1fr 1fr;  /* exact equal width */
+  grid-template-columns: 1fr 1fr;  
+}
+
+.wrap {
+  align-items: stretch;  
+}
+
+.wrap > .card:nth-child(1),
+.wrap > .card:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+  height: 100%;
 }
 
 
 
-    /* Optional: a simple header that sits on dark blue */
     header{color:#fff;text-align:center;padding:28px 0 8px}
-    h3{margin:6px 0 12px 4px;color:#0b1e3a}  /* dark title inside white cards */
+    h3{margin:6px 0 12px 4px;color:#0b1e3a}  
     .sub,.obs,.tip{color:#2b2b2b}
 
-    /* Center the big charts inside their white cards */
-    /* Center big charts by default */
+
     #bar-view,
     #age-bmi-view {
       display: flex;
@@ -66,10 +79,9 @@
       width: 100%;
     }
 
-    /* Make the heatmap align left */
     #heatmap-view {
       display: flex;
-      justify-content: flex-start;  /* left align */
+      justify-content: flex-start; 
     }
 
     #heatmap-view .vega-embed {
@@ -79,19 +91,17 @@
       width: 100%;
     }
 
-
-    /* Make the embedded chart honor a max width and center itself */
     #bar-view .vega-embed,
     #heatmap-view .vega-embed,
     #age-bmi-view .vega-embed {
-      margin: 0 auto;      /* horizontally center */
-      max-width: 1120px;   /* keep it neat on wide screens */
-      width: 100%;         /* shrink nicely on small screens */
+      margin: 0 auto;    
+      max-width: 1120px;   
+      width: 100%;      
     }
-    /* Heatmap two-column layout */
+
 .heatmap-card .heatmap-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* chart wider than text */
+  grid-template-columns: 2fr 1fr; 
   gap: 24px;
   align-items: center;
 }
@@ -102,29 +112,27 @@
 }
 
 .heatmap-card .text-side {
-  padding-top: 40px; /* optional spacing to align visually */
+  padding-top: 40px; 
 }
 
 .heatmap-card .text-side ul {
-  margin-top: 8px;
+  margin-top: 14px;
 }
-/* Main header styling */
-/* Main header */
+
 .main-header {
   background: #0b1e3a;
 }
 
-/* Use same width as .wrap so centering matches the cards */
 .main-header .container {
-  max-width: 1200px;      /* <- same as .wrap */
-  margin: 0 auto;         /* center the header content block */
-  text-align: center;     /* center the text inside */
+  max-width: 1200px;   
+  margin: 0 auto;      
+  text-align: center;   
   padding: 40px 24px 20px;
 }
 
 .main-header h1 {
   margin: 0;
-  font-size: 80px;        /* adjust if you like */
+  font-size: 75px;       
   font-weight: 700;
   color: #fff;
   letter-spacing: 1px;
@@ -135,15 +143,242 @@
   font-size: 25px;
   color: #dce4f7;
 }
-/* Bigger title just for the map card */
+
 .title-lg{
-  font-size: 26px;      /* tweak to taste: 24–30px works well */
+  font-size: 26px;    
   line-height: 1.2;
-  margin: 6px 0 12px 4px; /* keep your current spacing */
+  margin: 6px 0 12px 4px; 
   font-weight: 700;
 }
 
+.heatmap-card .text-side {
+  font-size: 22px;           
+  line-height: 1.6;           
+}
 
+
+.heatmap-card .text-side .obs li {
+  font-size: 22px;           
+  margin-bottom: 10px;       
+}
+
+.sub, .tip, .obs li {
+  font-size: 22px;       
+  line-height: 1.7;      
+  color: #222;           
+}
+
+.tip {
+  font-weight: 600;
+  color: #0b1e3a;
+}
+
+.obs {
+  margin-top: 10px;
+  padding-left: 24px;
+}
+
+.obs li {
+  margin-bottom: 10px;
+}
+
+
+.card h3 {
+  font-size: 30px;      
+  line-height: 1.25;
+  font-weight: 800;
+  margin: 6px 0 12px 4px; 
+  color: #0b1e3a;          
+}
+
+@media (max-width: 700px) {
+  .card h3 { font-size: 24px; }
+}
+
+.wrap {
+  padding: 32px 40px;   
+  gap: 28px;            
+}
+
+.card {
+  padding: 22px 28px;  
+  border-radius: 14px;
+}
+
+.card h3,
+.card .sub,
+.card .tip,
+.card .obs {
+  margin-left: 2px;     
+}
+
+.card ul {
+  padding-left: 24px;   
+  margin-top: 10px;
+}
+
+.heatmap-card .text-side {
+  padding: 8px 12px 8px 18px;
+}
+
+.card .vega-embed {
+  margin-top: 6px;
+}
+/* Main page title */
+.main-header h1{
+  font-family: 'Bungee', 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;              
+  font-size: clamp(48px, 8vw, 88px);
+  letter-spacing: 1px;
+}
+
+.card h3 {
+    font-family: 'Oswald', 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 700; 
+    letter-spacing: 0.2px; 
+  }
+
+
+
+/* ====== FILTER / DROPDOWN STYLING ====== */
+.controls label,
+.controls select {
+  font-size: 20px;          
+  font-family: 'Poppins', sans-serif;
+  color: #0b1e3a;
+}
+
+.controls select {
+  padding: 10px 16px;       
+  border: 2px solid #0b1e3a;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0b1e3a;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.controls select:hover {
+  background-color: #e6eefc;
+}
+
+.controls select:focus {
+  border-color: #1d4ed8;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.25);
+}
+
+.controls {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;                 
+}
+
+
+.vega-bind-name {
+  font-size: 20px !important;
+  font-weight: 600;
+  color: #0b1e3a;
+  margin-right: 10px;
+}
+.vega-bind select {
+  font-size: 18px !important;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid #0b1e3a;
+  background-color: #f9f9f9;
+}
+
+.vg-tooltip {
+  font-size: 16px !important;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif !important;
+  line-height: 1.4;
+}
+
+.main-header h1 {
+  font-family: 'Bungee', 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 70px);  
+  letter-spacing: 1px;
+  white-space: nowrap;               
+  text-align: center;               
+}
+
+.card.meta{
+  background:#0b1e3a; color:#fff; box-shadow:none; border:none;
+  padding:22px 28px;
+}
+
+/* Row 1: two columns (Author | Date) */
+.meta-head{
+  display:grid; grid-template-columns:1fr auto; gap:24px; align-items:start;
+  margin-bottom:12px; border-bottom:1px solid rgba(255,255,255,.12); padding-bottom:12px;
+}
+.meta-right{ text-align:right; }
+
+/* Row 2: full-width sources */
+.meta-body h3{ margin:10px 0 8px; }
+.meta-item h3{ margin:0 0 6px; }
+.meta-item p{ margin:0; }
+
+/* Footer / metadata card */
+.card.meta{
+  background: #0b1e3a;   /* same as page bg */
+  color: #fff;
+  box-shadow: none;
+  border-radius: 12px;
+  padding: 28px 32px;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+/* Two-column head: Author | Date */
+.meta-head{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 18px;
+  align-items: start;
+}
+
+.card.meta h3{
+  color: #fff;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  letter-spacing: .2px;
+}
+
+.card.meta p{ margin: 0; font-size: 20px; }
+
+.meta-body ul{
+  margin: 6px 0 0;
+  padding-left: 22px;
+}
+
+.meta-body li{
+  margin: 6px 0;
+  font-size: 20px;
+}
+
+.card.meta a{
+  color: #e6eefc;
+  text-decoration: underline;
+  word-break: break-word;
+  font-size: 20px;
+}
+
+/* Stack nicely on small screens */
+@media (max-width: 700px){
+  .meta-head{ grid-template-columns: 1fr; }
+  .card.meta{ font-size: 18px; padding: 24px; }
+  .card.meta h3{ font-size: 24px; }
+  .card.meta a, .card.meta p, .meta-body li{ font-size: 18px; }
+}
 
   </style>
 
@@ -153,8 +388,8 @@
 <!-- MAIN PAGE TITLE -->
 <header class="main-header">
   <div class="container">
-    <h1>The Olympic Story in Data</h1>
-    <p>Exploring medals, participation, and performance across nations and time.</p>
+    <h1>Olympic Through The Years</h1>
+    <p>How games and athletes evolved through the years.</p>
   </div>
 </header>
 
@@ -162,11 +397,10 @@
 
   <!-- MAP (left) -->
   <div class="card">
-    <h3>Where Do the Medals Live?</h3>
-    <p class="sub">Total medals earned by each nation across modern Olympics.</p>
+    <h3>Global Medal Landscape - Where Do the Medals Live?</h3>
     <div id="map-view"></div>
     <ul class="obs">
-      <li>Medals concentrate among a handful of long-participating nations.</li>
+      <li>The United States consistently achieving the highest normalized medal scores across modern Olympic history.</li>
       <li>Europe & North America dominate, with strong pockets in East Asia/Oceania.</li>
       <li>Lighter tones show smaller or newer NOCs.</li>
     </ul>
@@ -175,15 +409,15 @@
 
   <!-- DONUT (right) -->
   <div class="card">
-    <h3>Gold–Silver–Bronze Split</h3>
+    <h3>Gold-Silver-Bronze Split</h3>
     <p class="sub">Pick a country to see its medal composition.</p>
     <div id="donut-view"></div>
     <div id="donut-controls" class="controls"></div>
     <p class="tip">Tip: Try USA, China, or Norway for contrasts.</p>
     <ul class="obs">
-      <li>Balanced splits = broad strengths; emerging teams often skew bronze.</li>
-      <li>High gold share signals dominance in select events.</li>
-      <li>Similar totals can hide different “quality” mixes.</li>
+      <li>USA and China lead with a high gold ratio, showing dominance.</li>
+      <li>HEmerging nations earn more silver and bronze, signaling growing strength.</li>
+      <li>Norway and Japan display balanced mixes, reflecting versatility.</li>
     </ul>
   </div>
 
@@ -196,7 +430,7 @@
     <div id="bar-controls" class="controls"></div>
     <ul class="obs">
       <li>Sharp growth post mid-20th century.</li>
-      <li>Women’s share rises steadily.</li>
+      <li>Women's share rises steadily.</li>
       <li>Winter is lower overall but trends similarly.</li>
     </ul>
   </div>
@@ -207,16 +441,16 @@
   <div class="heatmap-grid">
     <div class="chart-side">
       <h3>Specialisations by Nation</h3>
-      <p class="sub">Darker cells = more medals for that country–sport pair.</p>
+      <p class="sub">Darker cells = more medals for that country-sport pair.</p>
       <div id="heatmap-view"></div>
     </div>
 
     <div class="text-side">
-      <p class="tip"><strong>Hover</strong> cells to compare focus vs overall totals.</p>
+      <p class="tip">Hover cells to compare focus vs overall totals.</p>
       <ul class="obs">
-        <li>“Stripes” reveal national specialisations.</li>
-        <li>Some countries cluster medals in a few disciplines.</li>
-        <li>Dark outliers show unexpected strengths.</li>
+        <li><strong>Russia, Germany</strong> and the <strong>Soviet Union</strong>show consistently dark cells across many sports, reflecting broad sporting strength.</li>
+        <li><strong>China</strong> and <strong>Japan</strong> have strong specialisations in gymnastics, diving, and table tennis.</li>
+        <li><strong></strong>Nordic countries like <strong>Norway</strong> and <strong>Sweden</strong> concentrate their medals in winter sports such as skiing and ice hockey.</li>
       </ul>
     </div>
   </div>
@@ -231,9 +465,51 @@
   <ul class="obs">
     <li>Median ages across medal types are similar; extremes are rare.</li>
     <li>BMI spans widely, reflecting sport diversity.</li>
-    <li>Gold distributions are tighter—peak performance bands.</li>
+    <li>Gold distributions are tighter-peak performance bands.</li>
   </ul>
 </div>
+
+<!-- Footer metadata card -->
+<div class="card full meta">
+  <div class="meta-head">
+    <div class="meta-item">
+      <h3>Author</h3>
+      <p>Lim Qiao En</p>
+    </div>
+    <div class="meta-item meta-right">
+      <h3>Date</h3>
+      <p>Last updated: <span id="last-updated"></span></p>
+    </div>
+  </div>
+
+  <div class="meta-body">
+    <h3>Data Sources</h3>
+    <ul>
+      <li>
+        <a href="https://www.kaggle.com/datasets/mysarahmadbhat/120-years-of-olympic-history" target="_blank" rel="noopener noreferrer">
+          Kaggle: 120 Years of Olympic History
+        </a>
+      </li>
+      <li>
+        <a href="https://worldpopulationreview.com/country-rankings/olympic-medals-by-country" target="_blank" rel="noopener noreferrer">
+          WorldPopulationReview: Medals by Country
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  // Auto-fill "Last updated" if empty (e.g., today)
+  const el = document.getElementById('last-updated');
+  if (el && !el.textContent.trim()) {
+    el.textContent = new Date().toLocaleDateString(undefined, {
+      year: 'numeric', month: 'short', day: 'numeric'
+    });
+  }
+</script>
+
+
 
 
 
@@ -241,9 +517,11 @@
   // ---------- MAP (choropleth) ----------
 const mapSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Olympic Medals (Normalized by Top Country)",
+  "title": {"text":"Olympic Medals (Normalized by Top Country)","fontSize":28,"dy": -10 },
+  
   "width": 900,
-  "height": 400,
+  "height": 550,
+  "fontSize": 28, 
   "projection": {"type": "equalEarth"},
   "layer": [
     { 
@@ -276,7 +554,7 @@ const mapSpec = {
           }
         },
         {"calculate": "toNumber(datum.OlympicMedalsTotal_2022)", "as": "Medals"},
-        {"calculate": "datum.Medals / 3105", "as": "MedalsNormalized"}  // normalization step
+        {"calculate": "datum.Medals / 3105", "as": "MedalsNormalized"} 
       ],
       "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.3},
       "encoding": {
@@ -292,7 +570,7 @@ const mapSpec = {
           {"field": "OlympicMedalsGold", "type": "quantitative", "title": "Gold"},
           {"field": "OlympicMedalsSilver", "type": "quantitative", "title": "Silver"},
           {"field": "OlympicMedalsBronze", "type": "quantitative", "title": "Bronze"},
-          {"field": "MedalsNormalized", "type": "quantitative", "title": "Normalized (0–1)"}
+          {"field": "MedalsNormalized", "type": "quantitative", "title": "Normalized (0-1)"}
         ]
       }
     }
@@ -303,9 +581,12 @@ const mapSpec = {
     // ---------- DONUT (country picker under chart) ----------
 const donutSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {"text": "Medal Mix by Country", "fontSize": 16},
+  "title": {"text": "Medal Mix by Country", "fontSize": 28},
   "width": 500,
   "height": 350,
+  "fontSize": 28, 
+  "background": "transparent",                 
+  "config": { "view": { "stroke": "transparent" } } ,
   "data": {
     "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"
   },
@@ -318,10 +599,7 @@ const donutSpec = {
         "input": "select",
         "name": " Country: ",
         "options": [
-          "United States of America","Germany","France","United Kingdom","China",
-          "Italy","Russia","Japan","Australia","Canada","Sweden","Norway",
-          "Netherlands","Finland","Switzerland","South Korea","Spain","Poland",
-          "Hungary","Brazil","Greece","New Zealand","Cuba","Austria","Belgium"
+          "Afghanistan","Algeria","Andorra","Argentina","Armenia","Australia","Austria", "Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium", "Bermuda","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil", "Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Chile", "China","Colombia","Costa Rica","Croatia","Cuba","Cyprus","Czechia","Denmark", "Djibouti","Dominican Republic","Ecuador","Egypt","El Salvador","Eritrea", "Estonia","Ethiopia","Fiji","Finland","France","Gabon","Georgia","Germany", "Ghana","Greece","Grenada","Guatemala","Guyana","Haiti","Hong Kong S.A.R", "Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy", "Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyzstan","Latvia", "Lebanon","Liechtenstein","Lithuania","Luxembourg","Malaysia","Mexico","Moldova", "Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia", "Nauru","Netherlands","New Zealand","Nigeria","North Korea","North Macedonia", "Norway","Pakistan","Panama","Paraguay","Peru","Philippines","Poland","Portugal", "Puerto Rico","Qatar","Romania","Russia","San Marino","Saudi Arabia","Senegal", "Serbia","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain", "Sri Lanka","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan", "Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan", "Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America", "Uruguay","Uzbekistan","Venezuela","Vietnam","Zambia","Zimbabwe"
         ],
         "element": "#donut-controls"
       }
@@ -371,21 +649,20 @@ const donutSpec = {
       }
     },
 
-    /* Country name below the donut */
-{
-  "transform": [
-    {"filter": "datum.country == country_sel"},
-    {"aggregate": [{"op":"max","field":"country","as":"cc"}]}
-  ],
-  "mark": {"type":"text","fontSize":14,"fontWeight":"bold","align":"center","baseline":"top"},
-  "encoding": {
-    "x": {"value": 250},   // half of width (500/2)
-    "y": {"value": 340},   // near bottom; adjust if needed
-    "text": {"field": "cc"},
-    "color": {"value":"#111"}
-  }
-}
-
+    /* Country name in center */
+    {
+      "transform": [
+        {"filter": "datum.country == country_sel"},
+        {"aggregate": [{"op": "max", "field": "country", "as": "cc"}]}
+      ],
+      "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "align": "center"},
+      "encoding": {
+        "x": {"value": 250},
+        "y": {"value": 340},
+        "text": {"field": "cc"},
+        "color": {"value": "#111"}
+      }
+    },
 
     /* Gold: xxx */
     {
@@ -437,9 +714,10 @@ const donutSpec = {
   // ---------- BAR (Season picker under chart) ----------
   const barSpec = {
     "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Participation — Summer (Stacked Bars) + Winter (Lines)",
+    "title": {"text":"Participation - Summer (Stacked Bars) + Winter (Lines)","fontSize": 28 },
     "width": 1500,
     "height": 600,
+    "fontSize": 28, 
     "data": {
       "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/athlete_events.csv",
       "format": {"type": "csv"}
@@ -490,7 +768,7 @@ const donutSpec = {
       {
         "name": "Winter (lines)",
         "transform": [{"filter": "datum.Season == 'Winter'"}],
-        "mark": {"type": "line", "point": true, "strokeWidth": 2},
+        "mark": {"type": "line", "point": {"filled": true, "size": 80, "fill": "#004c91"}, "strokeWidth": 2},
         "encoding": {
           "y": {"field": "Entries", "type": "quantitative"},
           "opacity": {"condition": {"test": "season_selection == null || season_selection == 'Winter'", "value": 1}, "value": 0},
@@ -502,6 +780,27 @@ const donutSpec = {
           ]
         }
       },
+      {
+      "name": "Winter points",
+      "transform": [{"filter": "datum.Season == 'Winter'"}],
+      "mark": {
+        "type": "point",
+        "size": 80,
+        "filled": true
+      },
+      "encoding": {
+        "y": {"field": "Entries", "type": "quantitative"},
+        "color": {
+          "field": "Sex",
+          "type": "nominal",
+          "scale": {"domain": ["F", "M"], "range": ["#d74c8a", "#004c91"]} 
+        },
+        "opacity": {
+          "condition": {"test": "season_selection == null || season_selection == 'Winter'", "value": 1},
+          "value": 0
+        }
+      }
+    },
       {
         "name": "Summer total labels (all years)",
         "transform": [
@@ -523,39 +822,29 @@ const donutSpec = {
     ]
   };
 
-  const heatMapSpec = {
-    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {
-    "text": "Total Medals by Sport and Country (Top 20 Countries)",
-    "fontSize": 16
-  },
+const heatMapSpec = {
+  "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+  "title": { "text": "Total Medals by Sport and Country (Top 20 Countries)", "fontSize": 28 },
 
-  "data": {
-    "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/refs/heads/main/top21_country_20sport_medals.csv"
-  },
-  
+  "width": 1050,           
+  "height": 520,          
+  "fontSize": 28, 
 
+  "data": { "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/refs/heads/main/top21_country_20sport_medals.csv" },
   "mark": "rect",
 
   "encoding": {
     "x": {
-      "field": "Sport",
-      "type": "nominal",
-      "title": "Sport",
-      "axis": {"labelAngle": -45, "labelFontSize": 10},
-      "sort": "ascending"
+      "field": "Sport", "type": "nominal", "title": "Sport",
+      "axis": { "labelAngle": -45 }     
     },
     "y": {
-      "field": "Team",
-      "type": "nominal",
-      "title": "Country",
+      "field": "Team", "type": "nominal", "title": "Country",
       "sort": {"field": "Country_Total", "op": "max", "order": "descending"}
     },
     "color": {
-      "field": "Total_Medals",
-      "type": "quantitative",
-      "title": "Total Medals",
-      "scale": {"scheme": "goldred"}
+      "field": "Total_Medals", "type": "quantitative",
+      "title": "Total Medals", "scale": {"scheme": "goldred"}
     },
     "tooltip": [
       {"field": "Team", "title": "Country"},
@@ -566,22 +855,26 @@ const donutSpec = {
   },
 
   "config": {
-    "axis": {"titleFontSize": 13, "labelFontSize": 10},
-    "view": {"stroke": "transparent"}
+    "axis": { "labelFontSize": 14, "titleFontSize": 16 },
+    "legend": { "labelFontSize": 14, "titleFontSize": 15 },
+    "title": { "fontSize": 22 },
+    "view": { "stroke": "transparent" }
   }
-  };
+};
+
 
   // ---------- AGE & BMI BOXPLOTS (full width) ----------
 const ageBmiSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Age and BMI Distribution by Medal Type",
+  "title": {"text":"Age and BMI Distribution by Medal Type","fontSize": 28 },
+  
   "data": {
     "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/athletes_with_bmi.csv"
   },
   "transform": [
     {"filter": "datum.Medal != null && datum.Medal != 'NA'"},
     {
-      // BMI = weight(kg) / (height(m))^2 ; height is in cm in this file
+      
       "calculate": "datum.Weight / ((datum.Height/100)*(datum.Height/100))",
       "as": "BMI"
     }
@@ -619,7 +912,6 @@ const ageBmiSpec = {
     }
   ],
   "spacing":100,
-  // You asked for independent color resolution — included for completeness
   "resolve": {
     "scale": {"color": "independent"},
     "legend": {"color": "independent"}
