@@ -2,34 +2,63 @@ Team,Sport,Total_Medals,Country_Total
 Australia,Alpine Skiing,1,1166
 Australia,Archery,5,1166
 Australia,Athletics,46,1166
+Australia,Badminton,0,1166
 Australia,Baseball,24,1166
 Australia,Basketball,60,1166
+Australia,Beach Volleyball,0,1166
+Australia,Biathlon,0,1166
+Australia,Bobsleigh,0,1166
 Australia,Boxing,3,1166
 Australia,Canoeing,39,1166
+Australia,Cross Country Skiing,0,1166
+Australia,Curling,0,1166
 Australia,Cycling,75,1166
 Australia,Diving,19,1166
 Australia,Equestrianism,37,1166
+Australia,Fencing,0,1166
+Australia,Figure Skating,0,1166
+Australia,Football,0,1166
 Australia,Freestyle Skiing,7,1166
+Australia,Golf,0,1166
+Australia,Gymnastics,0,1166
+Australia,Handball,0,1166
 Australia,Hockey,188,1166
+Australia,Ice Hockey,0,1166
 Australia,Judo,2,1166
+Australia,Luge,0,1166
 Australia,Modern Pentathlon,1,1166
+Australia,Nordic Combined,0,1166
+Australia,Rhythmic Gymnastics,0,1166
 Australia,Rowing,119,1166
 Australia,Rugby Sevens,12,1166
 Australia,Sailing,45,1166
 Australia,Shooting,11,1166
 Australia,Short Track Speed Skating,5,1166
+Australia,Skeleton,0,1166
+Australia,Ski Jumping,0,1166
 Australia,Snowboarding,2,1166
 Australia,Softball,60,1166
+Australia,Speed Skating,0,1166
 Australia,Swimming,346,1166
+Australia,Synchronized Swimming,0,1166
+Australia,Table Tennis,0,1166
 Australia,Taekwondo,2,1166
 Australia,Tennis,9,1166
 Australia,Trampolining,1,1166
 Australia,Triathlon,5,1166
+Australia,Volleyball,0,1166
 Australia,Water Polo,39,1166
 Australia,Weightlifting,3,1166
+Australia,Wrestling,0,1166
 Canada,Alpine Skiing,10,938
+Canada,Archery,0,938
 Canada,Athletics,41,938
+Canada,Badminton,0,938
+Canada,Baseball,0,938
+Canada,Basketball,0,938
+Canada,Beach Volleyball,0,938
 Canada,Biathlon,3,938
+Canada,Bobsleigh,0,938
 Canada,Boxing,9,938
 Canada,Canoeing,24,938
 Canada,Cross Country Skiing,4,938
@@ -37,12 +66,19 @@ Canada,Curling,48,938
 Canada,Cycling,19,938
 Canada,Diving,17,938
 Canada,Equestrianism,14,938
+Canada,Fencing,0,938
 Canada,Figure Skating,21,938
 Canada,Football,36,938
 Canada,Freestyle Skiing,18,938
+Canada,Golf,0,938
 Canada,Gymnastics,1,938
+Canada,Handball,0,938
+Canada,Hockey,0,938
 Canada,Ice Hockey,247,938
 Canada,Judo,5,938
+Canada,Luge,0,938
+Canada,Modern Pentathlon,0,938
+Canada,Nordic Combined,0,938
 Canada,Rhythmic Gymnastics,1,938
 Canada,Rowing,130,938
 Canada,Rugby Sevens,12,938
@@ -50,25 +86,37 @@ Canada,Sailing,15,938
 Canada,Shooting,1,938
 Canada,Short Track Speed Skating,70,938
 Canada,Skeleton,4,938
+Canada,Ski Jumping,0,938
 Canada,Snowboarding,7,938
+Canada,Softball,0,938
 Canada,Speed Skating,39,938
 Canada,Swimming,90,938
 Canada,Synchronized Swimming,26,938
+Canada,Table Tennis,0,938
 Canada,Taekwondo,2,938
 Canada,Tennis,2,938
 Canada,Trampolining,7,938
 Canada,Triathlon,2,938
+Canada,Volleyball,0,938
+Canada,Water Polo,0,938
 Canada,Weightlifting,2,938
 Canada,Wrestling,11,938
+China,Alpine Skiing,0,901
 China,Archery,19,901
 China,Athletics,27,901
 China,Badminton,24,901
+China,Baseball,0,901
 China,Basketball,23,901
+China,Beach Volleyball,0,901
+China,Biathlon,0,901
+China,Bobsleigh,0,901
 China,Boxing,12,901
 China,Canoeing,4,901
+China,Cross Country Skiing,0,901
 China,Curling,4,901
 China,Cycling,9,901
 China,Diving,88,901
+China,Equestrianism,0,901
 China,Fencing,30,901
 China,Figure Skating,2,901
 China,Football,15,901
@@ -77,86 +125,148 @@ China,Golf,1,901
 China,Gymnastics,109,901
 China,Handball,13,901
 China,Hockey,16,901
+China,Ice Hockey,0,901
 China,Judo,22,901
+China,Luge,0,901
 China,Modern Pentathlon,1,901
+China,Nordic Combined,0,901
 China,Rhythmic Gymnastics,6,901
 China,Rowing,29,901
+China,Rugby Sevens,0,901
 China,Sailing,6,901
 China,Shooting,56,901
 China,Short Track Speed Skating,49,901
+China,Skeleton,0,901
+China,Ski Jumping,0,901
+China,Snowboarding,0,901
 China,Softball,15,901
 China,Speed Skating,7,901
 China,Swimming,70,901
 China,Synchronized Swimming,31,901
 China,Table Tennis,51,901
 China,Taekwondo,10,901
+China,Tennis,0,901
 China,Trampolining,11,901
+China,Triathlon,0,901
 China,Volleyball,66,901
+China,Water Polo,0,901
 China,Weightlifting,57,901
 China,Wrestling,10,901
+East Germany,Alpine Skiing,0,941
+East Germany,Archery,0,941
 East Germany,Athletics,140,941
+East Germany,Badminton,0,941
+East Germany,Baseball,0,941
+East Germany,Basketball,0,941
+East Germany,Beach Volleyball,0,941
 East Germany,Biathlon,20,941
+East Germany,Bobsleigh,0,941
 East Germany,Boxing,13,941
 East Germany,Canoeing,50,941
 East Germany,Cross Country Skiing,10,941
+East Germany,Curling,0,941
 East Germany,Cycling,33,941
 East Germany,Diving,7,941
+East Germany,Equestrianism,0,941
 East Germany,Fencing,1,941
 East Germany,Figure Skating,6,941
 East Germany,Football,51,941
+East Germany,Freestyle Skiing,0,941
+East Germany,Golf,0,941
 East Germany,Gymnastics,86,941
 East Germany,Handball,42,941
+East Germany,Hockey,0,941
+East Germany,Ice Hockey,0,941
 East Germany,Judo,9,941
 East Germany,Luge,21,941
+East Germany,Modern Pentathlon,0,941
 East Germany,Nordic Combined,7,941
+East Germany,Rhythmic Gymnastics,0,941
 East Germany,Rowing,184,941
+East Germany,Rugby Sevens,0,941
 East Germany,Sailing,15,941
 East Germany,Shooting,16,941
+East Germany,Short Track Speed Skating,0,941
+East Germany,Skeleton,0,941
 East Germany,Ski Jumping,7,941
+East Germany,Snowboarding,0,941
+East Germany,Softball,0,941
 East Germany,Speed Skating,29,941
 East Germany,Swimming,152,941
+East Germany,Synchronized Swimming,0,941
+East Germany,Table Tennis,0,941
+East Germany,Taekwondo,0,941
+East Germany,Tennis,0,941
+East Germany,Trampolining,0,941
+East Germany,Triathlon,0,941
 East Germany,Volleyball,24,941
+East Germany,Water Polo,0,941
 East Germany,Weightlifting,11,941
 East Germany,Wrestling,7,941
 France,Alpine Skiing,39,832
 France,Archery,5,832
 France,Athletics,54,832
+France,Badminton,0,832
+France,Baseball,0,832
 France,Basketball,24,832
+France,Beach Volleyball,0,832
 France,Biathlon,40,832
 France,Bobsleigh,4,832
 France,Boxing,15,832
 France,Canoeing,37,832
 France,Cross Country Skiing,5,832
+France,Curling,0,832
 France,Cycling,63,832
+France,Diving,0,832
 France,Equestrianism,41,832
 France,Fencing,150,832
 France,Figure Skating,5,832
 France,Football,16,832
 France,Freestyle Skiing,12,832
+France,Golf,0,832
 France,Gymnastics,8,832
 France,Handball,77,832
+France,Hockey,0,832
+France,Ice Hockey,0,832
 France,Judo,49,832
+France,Luge,0,832
 France,Modern Pentathlon,7,832
 France,Nordic Combined,7,832
+France,Rhythmic Gymnastics,0,832
 France,Rowing,46,832
+France,Rugby Sevens,0,832
 France,Sailing,24,832
 France,Shooting,14,832
+France,Short Track Speed Skating,0,832
+France,Skeleton,0,832
 France,Ski Jumping,1,832
 France,Snowboarding,10,832
+France,Softball,0,832
+France,Speed Skating,0,832
 France,Swimming,56,832
 France,Synchronized Swimming,2,832
 France,Table Tennis,1,832
 France,Taekwondo,7,832
 France,Tennis,2,832
+France,Trampolining,0,832
+France,Triathlon,0,832
+France,Volleyball,0,832
+France,Water Polo,0,832
 France,Weightlifting,2,832
 France,Wrestling,9,832
 Germany,Alpine Skiing,22,1399
 Germany,Archery,7,1399
 Germany,Athletics,71,1399
+Germany,Badminton,0,1399
+Germany,Baseball,0,1399
+Germany,Basketball,0,1399
+Germany,Beach Volleyball,0,1399
 Germany,Biathlon,80,1399
+Germany,Bobsleigh,0,1399
 Germany,Boxing,16,1399
 Germany,Canoeing,138,1399
 Germany,Cross Country Skiing,35,1399
+Germany,Curling,0,1399
 Germany,Cycling,71,1399
 Germany,Diving,17,1399
 Germany,Equestrianism,92,1399
@@ -164,125 +274,226 @@ Germany,Fencing,50,1399
 Germany,Figure Skating,1,1399
 Germany,Football,104,1399
 Germany,Freestyle Skiing,1,1399
+Germany,Golf,0,1399
 Germany,Gymnastics,18,1399
 Germany,Handball,30,1399
 Germany,Hockey,130,1399
+Germany,Ice Hockey,0,1399
 Germany,Judo,20,1399
 Germany,Luge,31,1399
 Germany,Modern Pentathlon,1,1399
 Germany,Nordic Combined,23,1399
+Germany,Rhythmic Gymnastics,0,1399
 Germany,Rowing,158,1399
+Germany,Rugby Sevens,0,1399
 Germany,Sailing,14,1399
 Germany,Shooting,20,1399
+Germany,Short Track Speed Skating,0,1399
 Germany,Skeleton,2,1399
 Germany,Ski Jumping,25,1399
 Germany,Snowboarding,5,1399
+Germany,Softball,0,1399
 Germany,Speed Skating,47,1399
 Germany,Swimming,114,1399
+Germany,Synchronized Swimming,0,1399
 Germany,Table Tennis,16,1399
 Germany,Taekwondo,2,1399
 Germany,Tennis,9,1399
 Germany,Trampolining,2,1399
 Germany,Triathlon,2,1399
+Germany,Volleyball,0,1399
+Germany,Water Polo,0,1399
 Germany,Weightlifting,9,1399
 Germany,Wrestling,16,1399
+Great Britain,Alpine Skiing,0,864
 Great Britain,Archery,8,864
 Great Britain,Athletics,157,864
 Great Britain,Badminton,2,864
+Great Britain,Baseball,0,864
+Great Britain,Basketball,0,864
+Great Britain,Beach Volleyball,0,864
+Great Britain,Biathlon,0,864
 Great Britain,Bobsleigh,4,864
 Great Britain,Boxing,25,864
 Great Britain,Canoeing,18,864
+Great Britain,Cross Country Skiing,0,864
 Great Britain,Curling,13,864
 Great Britain,Cycling,89,864
 Great Britain,Diving,10,864
 Great Britain,Equestrianism,67,864
 Great Britain,Fencing,8,864
 Great Britain,Figure Skating,4,864
+Great Britain,Football,0,864
+Great Britain,Freestyle Skiing,0,864
 Great Britain,Golf,1,864
 Great Britain,Gymnastics,15,864
+Great Britain,Handball,0,864
 Great Britain,Hockey,79,864
+Great Britain,Ice Hockey,0,864
 Great Britain,Judo,19,864
+Great Britain,Luge,0,864
 Great Britain,Modern Pentathlon,11,864
+Great Britain,Nordic Combined,0,864
+Great Britain,Rhythmic Gymnastics,0,864
 Great Britain,Rowing,157,864
 Great Britain,Rugby Sevens,12,864
 Great Britain,Sailing,61,864
 Great Britain,Shooting,13,864
 Great Britain,Short Track Speed Skating,1,864
 Great Britain,Skeleton,4,864
+Great Britain,Ski Jumping,0,864
 Great Britain,Snowboarding,1,864
+Great Britain,Softball,0,864
+Great Britain,Speed Skating,0,864
 Great Britain,Swimming,63,864
+Great Britain,Synchronized Swimming,0,864
+Great Britain,Table Tennis,0,864
 Great Britain,Taekwondo,6,864
 Great Britain,Tennis,6,864
 Great Britain,Trampolining,1,864
 Great Britain,Triathlon,5,864
+Great Britain,Volleyball,0,864
+Great Britain,Water Polo,0,864
 Great Britain,Weightlifting,3,864
 Great Britain,Wrestling,1,864
+Hungary,Alpine Skiing,0,702
+Hungary,Archery,0,702
 Hungary,Athletics,19,702
+Hungary,Badminton,0,702
+Hungary,Baseball,0,702
+Hungary,Basketball,0,702
+Hungary,Beach Volleyball,0,702
+Hungary,Biathlon,0,702
+Hungary,Bobsleigh,0,702
 Hungary,Boxing,13,702
 Hungary,Canoeing,144,702
+Hungary,Cross Country Skiing,0,702
+Hungary,Curling,0,702
+Hungary,Cycling,0,702
+Hungary,Diving,0,702
+Hungary,Equestrianism,0,702
 Hungary,Fencing,131,702
 Hungary,Figure Skating,2,702
 Hungary,Football,64,702
+Hungary,Freestyle Skiing,0,702
+Hungary,Golf,0,702
 Hungary,Gymnastics,23,702
 Hungary,Handball,45,702
+Hungary,Hockey,0,702
+Hungary,Ice Hockey,0,702
 Hungary,Judo,9,702
+Hungary,Luge,0,702
 Hungary,Modern Pentathlon,33,702
+Hungary,Nordic Combined,0,702
+Hungary,Rhythmic Gymnastics,0,702
 Hungary,Rowing,4,702
+Hungary,Rugby Sevens,0,702
 Hungary,Sailing,2,702
 Hungary,Shooting,9,702
+Hungary,Short Track Speed Skating,0,702
+Hungary,Skeleton,0,702
+Hungary,Ski Jumping,0,702
+Hungary,Snowboarding,0,702
+Hungary,Softball,0,702
+Hungary,Speed Skating,0,702
 Hungary,Swimming,44,702
+Hungary,Synchronized Swimming,0,702
+Hungary,Table Tennis,0,702
+Hungary,Taekwondo,0,702
+Hungary,Tennis,0,702
+Hungary,Trampolining,0,702
+Hungary,Triathlon,0,702
+Hungary,Volleyball,0,702
 Hungary,Water Polo,109,702
 Hungary,Weightlifting,20,702
 Hungary,Wrestling,31,702
 Italy,Alpine Skiing,28,959
 Italy,Archery,15,959
 Italy,Athletics,40,959
+Italy,Badminton,0,959
+Italy,Baseball,0,959
 Italy,Basketball,24,959
+Italy,Beach Volleyball,0,959
 Italy,Biathlon,10,959
+Italy,Bobsleigh,0,959
 Italy,Boxing,28,959
 Italy,Canoeing,23,959
 Italy,Cross Country Skiing,61,959
+Italy,Curling,0,959
 Italy,Cycling,65,959
 Italy,Diving,12,959
 Italy,Equestrianism,24,959
 Italy,Fencing,179,959
 Italy,Figure Skating,1,959
 Italy,Football,17,959
+Italy,Freestyle Skiing,0,959
+Italy,Golf,0,959
 Italy,Gymnastics,15,959
+Italy,Handball,0,959
+Italy,Hockey,0,959
+Italy,Ice Hockey,0,959
 Italy,Judo,15,959
 Italy,Luge,10,959
 Italy,Modern Pentathlon,12,959
 Italy,Nordic Combined,1,959
 Italy,Rhythmic Gymnastics,12,959
 Italy,Rowing,74,959
+Italy,Rugby Sevens,0,959
 Italy,Sailing,13,959
 Italy,Shooting,38,959
 Italy,Short Track Speed Skating,21,959
+Italy,Skeleton,0,959
+Italy,Ski Jumping,0,959
 Italy,Snowboarding,2,959
+Italy,Softball,0,959
 Italy,Speed Skating,6,959
 Italy,Swimming,27,959
+Italy,Synchronized Swimming,0,959
+Italy,Table Tennis,0,959
 Italy,Taekwondo,3,959
+Italy,Tennis,0,959
+Italy,Trampolining,0,959
+Italy,Triathlon,0,959
 Italy,Volleyball,72,959
 Italy,Water Polo,100,959
 Italy,Weightlifting,3,959
 Italy,Wrestling,8,959
+Japan,Alpine Skiing,0,807
 Japan,Archery,7,807
 Japan,Athletics,18,807
 Japan,Badminton,3,807
 Japan,Baseball,64,807
+Japan,Basketball,0,807
+Japan,Beach Volleyball,0,807
+Japan,Biathlon,0,807
+Japan,Bobsleigh,0,807
 Japan,Boxing,5,807
 Japan,Canoeing,1,807
+Japan,Cross Country Skiing,0,807
+Japan,Curling,0,807
 Japan,Cycling,6,807
+Japan,Diving,0,807
+Japan,Equestrianism,0,807
 Japan,Fencing,5,807
 Japan,Figure Skating,5,807
 Japan,Football,34,807
 Japan,Freestyle Skiing,3,807
+Japan,Golf,0,807
 Japan,Gymnastics,146,807
+Japan,Handball,0,807
+Japan,Hockey,0,807
+Japan,Ice Hockey,0,807
 Japan,Judo,84,807
+Japan,Luge,0,807
+Japan,Modern Pentathlon,0,807
 Japan,Nordic Combined,8,807
+Japan,Rhythmic Gymnastics,0,807
+Japan,Rowing,0,807
+Japan,Rugby Sevens,0,807
 Japan,Sailing,4,807
 Japan,Shooting,6,807
 Japan,Short Track Speed Skating,6,807
+Japan,Skeleton,0,807
 Japan,Ski Jumping,20,807
 Japan,Snowboarding,3,807
 Japan,Softball,44,807
@@ -292,107 +503,240 @@ Japan,Synchronized Swimming,52,807
 Japan,Table Tennis,10,807
 Japan,Taekwondo,1,807
 Japan,Tennis,1,807
+Japan,Trampolining,0,807
+Japan,Triathlon,0,807
 Japan,Volleyball,101,807
+Japan,Water Polo,0,807
 Japan,Weightlifting,14,807
 Japan,Wrestling,63,807
+Netherlands,Alpine Skiing,0,713
 Netherlands,Archery,1,713
 Netherlands,Athletics,5,713
 Netherlands,Badminton,1,713
+Netherlands,Baseball,0,713
+Netherlands,Basketball,0,713
+Netherlands,Beach Volleyball,0,713
+Netherlands,Biathlon,0,713
+Netherlands,Bobsleigh,0,713
 Netherlands,Boxing,5,713
 Netherlands,Canoeing,6,713
+Netherlands,Cross Country Skiing,0,713
+Netherlands,Curling,0,713
 Netherlands,Cycling,43,713
+Netherlands,Diving,0,713
 Netherlands,Equestrianism,33,713
+Netherlands,Fencing,0,713
 Netherlands,Figure Skating,3,713
+Netherlands,Football,0,713
+Netherlands,Freestyle Skiing,0,713
+Netherlands,Golf,0,713
 Netherlands,Gymnastics,2,713
+Netherlands,Handball,0,713
 Netherlands,Hockey,209,713
+Netherlands,Ice Hockey,0,713
 Netherlands,Judo,23,713
+Netherlands,Luge,0,713
+Netherlands,Modern Pentathlon,0,713
+Netherlands,Nordic Combined,0,713
+Netherlands,Rhythmic Gymnastics,0,713
 Netherlands,Rowing,116,713
+Netherlands,Rugby Sevens,0,713
 Netherlands,Sailing,16,713
 Netherlands,Shooting,1,713
 Netherlands,Short Track Speed Skating,1,713
+Netherlands,Skeleton,0,713
+Netherlands,Ski Jumping,0,713
 Netherlands,Snowboarding,1,713
+Netherlands,Softball,0,713
 Netherlands,Speed Skating,114,713
 Netherlands,Swimming,85,713
+Netherlands,Synchronized Swimming,0,713
+Netherlands,Table Tennis,0,713
+Netherlands,Taekwondo,0,713
 Netherlands,Tennis,2,713
+Netherlands,Trampolining,0,713
+Netherlands,Triathlon,0,713
 Netherlands,Volleyball,24,713
 Netherlands,Water Polo,22,713
+Netherlands,Weightlifting,0,713
+Netherlands,Wrestling,0,713
 Norway,Alpine Skiing,25,547
+Norway,Archery,0,547
 Norway,Athletics,8,547
+Norway,Badminton,0,547
+Norway,Baseball,0,547
+Norway,Basketball,0,547
+Norway,Beach Volleyball,0,547
 Norway,Biathlon,62,547
+Norway,Bobsleigh,0,547
+Norway,Boxing,0,547
 Norway,Canoeing,19,547
 Norway,Cross Country Skiing,139,547
 Norway,Curling,14,547
 Norway,Cycling,4,547
+Norway,Diving,0,547
+Norway,Equestrianism,0,547
 Norway,Fencing,1,547
+Norway,Figure Skating,0,547
 Norway,Football,33,547
 Norway,Freestyle Skiing,8,547
+Norway,Golf,0,547
+Norway,Gymnastics,0,547
 Norway,Handball,85,547
+Norway,Hockey,0,547
+Norway,Ice Hockey,0,547
+Norway,Judo,0,547
+Norway,Luge,0,547
+Norway,Modern Pentathlon,0,547
 Norway,Nordic Combined,25,547
+Norway,Rhythmic Gymnastics,0,547
 Norway,Rowing,28,547
+Norway,Rugby Sevens,0,547
 Norway,Sailing,10,547
 Norway,Shooting,4,547
+Norway,Short Track Speed Skating,0,547
+Norway,Skeleton,0,547
 Norway,Ski Jumping,25,547
 Norway,Snowboarding,4,547
+Norway,Softball,0,547
 Norway,Speed Skating,45,547
 Norway,Swimming,2,547
+Norway,Synchronized Swimming,0,547
+Norway,Table Tennis,0,547
 Norway,Taekwondo,2,547
+Norway,Tennis,0,547
+Norway,Trampolining,0,547
+Norway,Triathlon,0,547
+Norway,Volleyball,0,547
+Norway,Water Polo,0,547
 Norway,Weightlifting,1,547
 Norway,Wrestling,3,547
+Poland,Alpine Skiing,0,479
 Poland,Archery,4,479
 Poland,Athletics,63,479
+Poland,Badminton,0,479
+Poland,Baseball,0,479
+Poland,Basketball,0,479
+Poland,Beach Volleyball,0,479
 Poland,Biathlon,1,479
+Poland,Bobsleigh,0,479
 Poland,Boxing,38,479
 Poland,Canoeing,35,479
 Poland,Cross Country Skiing,5,479
+Poland,Curling,0,479
 Poland,Cycling,20,479
+Poland,Diving,0,479
 Poland,Equestrianism,5,479
 Poland,Fencing,63,479
+Poland,Figure Skating,0,479
 Poland,Football,50,479
+Poland,Freestyle Skiing,0,479
+Poland,Golf,0,479
 Poland,Gymnastics,2,479
 Poland,Handball,14,479
+Poland,Hockey,0,479
+Poland,Ice Hockey,0,479
 Poland,Judo,8,479
+Poland,Luge,0,479
 Poland,Modern Pentathlon,6,479
+Poland,Nordic Combined,0,479
+Poland,Rhythmic Gymnastics,0,479
 Poland,Rowing,34,479
+Poland,Rugby Sevens,0,479
 Poland,Sailing,4,479
 Poland,Shooting,10,479
+Poland,Short Track Speed Skating,0,479
+Poland,Skeleton,0,479
 Poland,Ski Jumping,7,479
+Poland,Snowboarding,0,479
+Poland,Softball,0,479
 Poland,Speed Skating,13,479
 Poland,Swimming,6,479
+Poland,Synchronized Swimming,0,479
+Poland,Table Tennis,0,479
+Poland,Taekwondo,0,479
+Poland,Tennis,0,479
+Poland,Trampolining,0,479
+Poland,Triathlon,0,479
 Poland,Volleyball,34,479
+Poland,Water Polo,0,479
 Poland,Weightlifting,31,479
 Poland,Wrestling,26,479
+Romania,Alpine Skiing,0,611
+Romania,Archery,0,611
 Romania,Athletics,35,611
+Romania,Badminton,0,611
+Romania,Baseball,0,611
+Romania,Basketball,0,611
+Romania,Beach Volleyball,0,611
+Romania,Biathlon,0,611
+Romania,Bobsleigh,0,611
 Romania,Boxing,19,611
 Romania,Canoeing,63,611
+Romania,Cross Country Skiing,0,611
+Romania,Curling,0,611
+Romania,Cycling,0,611
+Romania,Diving,0,611
 Romania,Equestrianism,3,611
 Romania,Fencing,46,611
+Romania,Figure Skating,0,611
+Romania,Football,0,611
+Romania,Freestyle Skiing,0,611
+Romania,Golf,0,611
 Romania,Gymnastics,128,611
 Romania,Handball,58,611
+Romania,Hockey,0,611
+Romania,Ice Hockey,0,611
 Romania,Judo,6,611
+Romania,Luge,0,611
+Romania,Modern Pentathlon,0,611
+Romania,Nordic Combined,0,611
 Romania,Rhythmic Gymnastics,1,611
 Romania,Rowing,175,611
+Romania,Rugby Sevens,0,611
+Romania,Sailing,0,611
 Romania,Shooting,11,611
+Romania,Short Track Speed Skating,0,611
+Romania,Skeleton,0,611
+Romania,Ski Jumping,0,611
+Romania,Snowboarding,0,611
+Romania,Softball,0,611
+Romania,Speed Skating,0,611
 Romania,Swimming,9,611
+Romania,Synchronized Swimming,0,611
+Romania,Table Tennis,0,611
+Romania,Taekwondo,0,611
 Romania,Tennis,2,611
+Romania,Trampolining,0,611
+Romania,Triathlon,0,611
 Romania,Volleyball,10,611
+Romania,Water Polo,0,611
 Romania,Weightlifting,13,611
 Romania,Wrestling,32,611
 Russia,Alpine Skiing,1,1100
 Russia,Archery,4,1100
 Russia,Athletics,103,1100
 Russia,Badminton,2,1100
+Russia,Baseball,0,1100
 Russia,Basketball,36,1100
+Russia,Beach Volleyball,0,1100
 Russia,Biathlon,57,1100
+Russia,Bobsleigh,0,1100
 Russia,Boxing,30,1100
 Russia,Canoeing,22,1100
 Russia,Cross Country Skiing,49,1100
+Russia,Curling,0,1100
 Russia,Cycling,24,1100
 Russia,Diving,27,1100
+Russia,Equestrianism,0,1100
 Russia,Fencing,62,1100
 Russia,Figure Skating,19,1100
+Russia,Football,0,1100
 Russia,Freestyle Skiing,4,1100
+Russia,Golf,0,1100
 Russia,Gymnastics,83,1100
 Russia,Handball,58,1100
+Russia,Hockey,0,1100
 Russia,Ice Hockey,43,1100
 Russia,Judo,16,1100
 Russia,Luge,6,1100
@@ -400,57 +744,98 @@ Russia,Modern Pentathlon,5,1100
 Russia,Nordic Combined,1,1100
 Russia,Rhythmic Gymnastics,45,1100
 Russia,Rowing,17,1100
+Russia,Rugby Sevens,0,1100
 Russia,Sailing,4,1100
 Russia,Shooting,31,1100
 Russia,Short Track Speed Skating,8,1100
 Russia,Skeleton,3,1100
+Russia,Ski Jumping,0,1100
 Russia,Snowboarding,5,1100
+Russia,Softball,0,1100
 Russia,Speed Skating,20,1100
 Russia,Swimming,43,1100
 Russia,Synchronized Swimming,54,1100
+Russia,Table Tennis,0,1100
 Russia,Taekwondo,4,1100
 Russia,Tennis,6,1100
 Russia,Trampolining,4,1100
+Russia,Triathlon,0,1100
 Russia,Volleyball,70,1100
 Russia,Water Polo,51,1100
 Russia,Weightlifting,26,1100
 Russia,Wrestling,57,1100
+South Korea,Alpine Skiing,0,586
 South Korea,Archery,69,586
 South Korea,Athletics,2,586
 South Korea,Badminton,5,586
 South Korea,Baseball,48,586
 South Korea,Basketball,11,586
+South Korea,Beach Volleyball,0,586
+South Korea,Biathlon,0,586
+South Korea,Bobsleigh,0,586
 South Korea,Boxing,17,586
+South Korea,Canoeing,0,586
+South Korea,Cross Country Skiing,0,586
+South Korea,Curling,0,586
+South Korea,Cycling,0,586
+South Korea,Diving,0,586
+South Korea,Equestrianism,0,586
 South Korea,Fencing,20,586
 South Korea,Figure Skating,2,586
 South Korea,Football,18,586
+South Korea,Freestyle Skiing,0,586
 South Korea,Golf,1,586
 South Korea,Gymnastics,9,586
 South Korea,Handball,96,586
 South Korea,Hockey,48,586
+South Korea,Ice Hockey,0,586
 South Korea,Judo,43,586
+South Korea,Luge,0,586
+South Korea,Modern Pentathlon,0,586
+South Korea,Nordic Combined,0,586
+South Korea,Rhythmic Gymnastics,0,586
+South Korea,Rowing,0,586
+South Korea,Rugby Sevens,0,586
+South Korea,Sailing,0,586
 South Korea,Shooting,16,586
 South Korea,Short Track Speed Skating,73,586
+South Korea,Skeleton,0,586
+South Korea,Ski Jumping,0,586
+South Korea,Snowboarding,0,586
+South Korea,Softball,0,586
 South Korea,Speed Skating,11,586
 South Korea,Swimming,4,586
+South Korea,Synchronized Swimming,0,586
 South Korea,Table Tennis,17,586
 South Korea,Taekwondo,19,586
+South Korea,Tennis,0,586
+South Korea,Trampolining,0,586
+South Korea,Triathlon,0,586
 South Korea,Volleyball,12,586
+South Korea,Water Polo,0,586
 South Korea,Weightlifting,9,586
 South Korea,Wrestling,36,586
+Soviet Union,Alpine Skiing,0,2128
 Soviet Union,Archery,7,2128
 Soviet Union,Athletics,197,2128
+Soviet Union,Badminton,0,2128
+Soviet Union,Baseball,0,2128
 Soviet Union,Basketball,120,2128
+Soviet Union,Beach Volleyball,0,2128
 Soviet Union,Biathlon,37,2128
+Soviet Union,Bobsleigh,0,2128
 Soviet Union,Boxing,39,2128
 Soviet Union,Canoeing,76,2128
 Soviet Union,Cross Country Skiing,99,2128
+Soviet Union,Curling,0,2128
 Soviet Union,Cycling,53,2128
 Soviet Union,Diving,14,2128
 Soviet Union,Equestrianism,29,2128
 Soviet Union,Fencing,140,2128
 Soviet Union,Figure Skating,4,2128
 Soviet Union,Football,69,2128
+Soviet Union,Freestyle Skiing,0,2128
+Soviet Union,Golf,0,2128
 Soviet Union,Gymnastics,207,2128
 Soviet Union,Handball,84,2128
 Soviet Union,Hockey,32,2128
@@ -461,11 +846,22 @@ Soviet Union,Modern Pentathlon,24,2128
 Soviet Union,Nordic Combined,3,2128
 Soviet Union,Rhythmic Gymnastics,2,2128
 Soviet Union,Rowing,135,2128
+Soviet Union,Rugby Sevens,0,2128
 Soviet Union,Sailing,18,2128
 Soviet Union,Shooting,37,2128
+Soviet Union,Short Track Speed Skating,0,2128
+Soviet Union,Skeleton,0,2128
 Soviet Union,Ski Jumping,1,2128
+Soviet Union,Snowboarding,0,2128
+Soviet Union,Softball,0,2128
 Soviet Union,Speed Skating,53,2128
 Soviet Union,Swimming,119,2128
+Soviet Union,Synchronized Swimming,0,2128
+Soviet Union,Table Tennis,0,2128
+Soviet Union,Taekwondo,0,2128
+Soviet Union,Tennis,0,2128
+Soviet Union,Trampolining,0,2128
+Soviet Union,Triathlon,0,2128
 Soviet Union,Volleyball,141,2128
 Soviet Union,Water Polo,68,2128
 Soviet Union,Weightlifting,48,2128
@@ -474,34 +870,62 @@ Spain,Alpine Skiing,2,450
 Spain,Archery,3,450
 Spain,Athletics,14,450
 Spain,Badminton,1,450
+Spain,Baseball,0,450
 Spain,Basketball,60,450
 Spain,Beach Volleyball,2,450
+Spain,Biathlon,0,450
+Spain,Bobsleigh,0,450
 Spain,Boxing,4,450
 Spain,Canoeing,24,450
+Spain,Cross Country Skiing,0,450
+Spain,Curling,0,450
 Spain,Cycling,19,450
+Spain,Diving,0,450
 Spain,Equestrianism,5,450
 Spain,Fencing,1,450
+Spain,Figure Skating,0,450
 Spain,Football,34,450
+Spain,Freestyle Skiing,0,450
+Spain,Golf,0,450
 Spain,Gymnastics,4,450
 Spain,Handball,60,450
 Spain,Hockey,77,450
+Spain,Ice Hockey,0,450
 Spain,Judo,6,450
+Spain,Luge,0,450
+Spain,Modern Pentathlon,0,450
+Spain,Nordic Combined,0,450
 Spain,Rhythmic Gymnastics,12,450
 Spain,Rowing,2,450
+Spain,Rugby Sevens,0,450
 Spain,Sailing,32,450
 Spain,Shooting,2,450
+Spain,Short Track Speed Skating,0,450
+Spain,Skeleton,0,450
+Spain,Ski Jumping,0,450
+Spain,Snowboarding,0,450
+Spain,Softball,0,450
+Spain,Speed Skating,0,450
 Spain,Swimming,8,450
 Spain,Synchronized Swimming,20,450
+Spain,Table Tennis,0,450
 Spain,Taekwondo,6,450
 Spain,Tennis,13,450
+Spain,Trampolining,0,450
 Spain,Triathlon,1,450
+Spain,Volleyball,0,450
 Spain,Water Polo,36,450
 Spain,Weightlifting,1,450
 Spain,Wrestling,1,450
 Sweden,Alpine Skiing,15,632
 Sweden,Archery,2,632
 Sweden,Athletics,14,632
+Sweden,Badminton,0,632
+Sweden,Baseball,0,632
+Sweden,Basketball,0,632
+Sweden,Beach Volleyball,0,632
 Sweden,Biathlon,16,632
+Sweden,Bobsleigh,0,632
 Sweden,Boxing,3,632
 Sweden,Canoeing,39,632
 Sweden,Cross Country Skiing,86,632
@@ -510,27 +934,49 @@ Sweden,Cycling,18,632
 Sweden,Diving,3,632
 Sweden,Equestrianism,14,632
 Sweden,Fencing,7,632
+Sweden,Figure Skating,0,632
 Sweden,Football,18,632
 Sweden,Freestyle Skiing,2,632
 Sweden,Golf,1,632
+Sweden,Gymnastics,0,632
 Sweden,Handball,61,632
+Sweden,Hockey,0,632
 Sweden,Ice Hockey,188,632
+Sweden,Judo,0,632
+Sweden,Luge,0,632
 Sweden,Modern Pentathlon,5,632
+Sweden,Nordic Combined,0,632
+Sweden,Rhythmic Gymnastics,0,632
+Sweden,Rowing,0,632
+Sweden,Rugby Sevens,0,632
 Sweden,Sailing,25,632
 Sweden,Shooting,10,632
+Sweden,Short Track Speed Skating,0,632
+Sweden,Skeleton,0,632
+Sweden,Ski Jumping,0,632
 Sweden,Snowboarding,1,632
+Sweden,Softball,0,632
 Sweden,Speed Skating,10,632
 Sweden,Swimming,43,632
+Sweden,Synchronized Swimming,0,632
 Sweden,Table Tennis,3,632
+Sweden,Taekwondo,0,632
 Sweden,Tennis,3,632
+Sweden,Trampolining,0,632
 Sweden,Triathlon,1,632
+Sweden,Volleyball,0,632
+Sweden,Water Polo,0,632
 Sweden,Weightlifting,1,632
 Sweden,Wrestling,22,632
 United States,Alpine Skiing,40,3553
 United States,Archery,28,3553
 United States,Athletics,530,3553
+United States,Badminton,0,3553
 United States,Baseball,68,3553
 United States,Basketball,287,3553
+United States,Beach Volleyball,0,3553
+United States,Biathlon,0,3553
+United States,Bobsleigh,0,3553
 United States,Boxing,66,3553
 United States,Canoeing,12,3553
 United States,Cross Country Skiing,1,3553
@@ -544,53 +990,83 @@ United States,Football,79,3553
 United States,Freestyle Skiing,21,3553
 United States,Golf,1,3553
 United States,Gymnastics,121,3553
+United States,Handball,0,3553
 United States,Hockey,16,3553
 United States,Ice Hockey,199,3553
 United States,Judo,14,3553
 United States,Luge,1,3553
 United States,Modern Pentathlon,11,3553
 United States,Nordic Combined,7,3553
+United States,Rhythmic Gymnastics,0,3553
 United States,Rowing,195,3553
+United States,Rugby Sevens,0,3553
 United States,Sailing,79,3553
 United States,Shooting,50,3553
 United States,Short Track Speed Skating,42,3553
 United States,Skeleton,5,3553
+United States,Ski Jumping,0,3553
 United States,Snowboarding,24,3553
 United States,Softball,60,3553
 United States,Speed Skating,58,3553
 United States,Swimming,875,3553
 United States,Synchronized Swimming,30,3553
+United States,Table Tennis,0,3553
 United States,Taekwondo,9,3553
 United States,Tennis,21,3553
+United States,Trampolining,0,3553
 United States,Triathlon,2,3553
 United States,Volleyball,120,3553
 United States,Water Polo,113,3553
 United States,Weightlifting,15,3553
 United States,Wrestling,76,3553
 West Germany,Alpine Skiing,9,558
+West Germany,Archery,0,558
 West Germany,Athletics,71,558
+West Germany,Badminton,0,558
+West Germany,Baseball,0,558
+West Germany,Basketball,0,558
+West Germany,Beach Volleyball,0,558
 West Germany,Biathlon,14,558
+West Germany,Bobsleigh,0,558
 West Germany,Boxing,6,558
 West Germany,Canoeing,12,558
+West Germany,Cross Country Skiing,0,558
+West Germany,Curling,0,558
 West Germany,Cycling,28,558
+West Germany,Diving,0,558
 West Germany,Equestrianism,62,558
 West Germany,Fencing,48,558
 West Germany,Figure Skating,1,558
 West Germany,Football,18,558
+West Germany,Freestyle Skiing,0,558
+West Germany,Golf,0,558
 West Germany,Gymnastics,1,558
 West Germany,Handball,15,558
 West Germany,Hockey,66,558
 West Germany,Ice Hockey,18,558
 West Germany,Judo,8,558
 West Germany,Luge,6,558
+West Germany,Modern Pentathlon,0,558
 West Germany,Nordic Combined,5,558
 West Germany,Rhythmic Gymnastics,1,558
 West Germany,Rowing,51,558
+West Germany,Rugby Sevens,0,558
 West Germany,Sailing,14,558
 West Germany,Shooting,11,558
+West Germany,Short Track Speed Skating,0,558
+West Germany,Skeleton,0,558
+West Germany,Ski Jumping,0,558
+West Germany,Snowboarding,0,558
+West Germany,Softball,0,558
 West Germany,Speed Skating,3,558
 West Germany,Swimming,59,558
+West Germany,Synchronized Swimming,0,558
+West Germany,Table Tennis,0,558
+West Germany,Taekwondo,0,558
 West Germany,Tennis,3,558
+West Germany,Trampolining,0,558
+West Germany,Triathlon,0,558
+West Germany,Volleyball,0,558
 West Germany,Water Polo,12,558
 West Germany,Weightlifting,7,558
 West Germany,Wrestling,9,558

@@ -6,18 +6,40 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <style>
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    .wrap{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:24px}
-    .full{grid-column:1 / -1}
-    .card{background:#fff;border-radius:12px;padding:14px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-    .controls{margin-top:10px}
-    .controls label{margin-right:8px}
-    h3{margin:6px 0 12px 4px}
-  </style>
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+    background:#0b1e3a;               
+  }
+  .wrap{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:24px}
+  .full{grid-column:1 / -1}
+
+  /* Cards */
+  .card{
+    background:#fff;                  
+    border-radius:12px;
+    padding:14px;
+    box-shadow:0 6px 24px rgba(0,0,0,.2);
+  }
+
+  /* Optional: a simple header that sits on dark blue */
+  header{color:#0b1e3a;text-align:center;padding:28px 0 8px}
+  h3{margin:6px 0 12px 4px;color:#0b1e3a}  /* dark title inside white cards */
+  .sub,.obs,.tip{color:#2b2b2b}
+</style>
+
 </head>
 <body>
+<!-- MAIN PAGE TITLE -->
+<header style="text-align:center; padding:28px 0 8px 0; background:#f8fafc;">
+  <h1 style="margin:0; font-size:28px; font-weight:700;">The Olympic Story in Data</h1>
+  <p style="margin:6px 0 0 0; font-size:16px; color:#555;">
+    Exploring medals, participation, and performance across nations and time.
+  </p>
+</header>
 
 <div class="wrap">
+
   <!-- MAP (left) -->
   <div class="card">
     <h3>Where Do the Medals Live?</h3>
@@ -90,61 +112,66 @@
 
 <script>
   // ---------- MAP (choropleth) ----------
-  const mapSpec = {
-    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Olympic medals for each countries",
-    "width": 540,
-    "height": 330,
-    "projection": {"type": "equalEarth"},
-    "layer": [
-      { "data": {"sphere": true},
-        "mark": {"type": "geoshape", "fill":"#eef6fb", "stroke": null}
+const mapSpec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Olympic Medals (Normalized by Top Country)",
+  "width": 540,
+  "height": 330,
+  "projection": {"type": "equalEarth"},
+  "layer": [
+    { 
+      "data": {"sphere": true},
+      "mark": {"type": "geoshape", "fill": "#eef6fb", "stroke": null}
+    },
+    { 
+      "data": {"graticule": true},
+      "mark": {"type": "geoshape", "stroke": "#c7d2d9", "strokeWidth": 0.5}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
       },
-      { "data": {"graticule": true},
-        "mark": {"type": "geoshape", "stroke": "#c7d2d9", "strokeWidth": 0.5}
+      "mark": {"type": "geoshape", "fill": "#f2efe9", "stroke": "#ffffff", "strokeWidth": 0.3}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
       },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+      "transform": [
+        {
+          "lookup": "properties.NAME",
+          "from": {
+            "data": {"url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"},
+            "key": "country",
+            "fields": ["OlympicMedalsTotal_2022", "OlympicMedalsGold", "OlympicMedalsSilver", "OlympicMedalsBronze"]
+          }
         },
-        "mark": {"type": "geoshape", "fill": "#f2efe9", "stroke": "#ffffff", "strokeWidth": 0.3}
-      },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+        {"calculate": "toNumber(datum.OlympicMedalsTotal_2022)", "as": "Medals"},
+        {"calculate": "datum.Medals / 3105", "as": "MedalsNormalized"}  // normalization step
+      ],
+      "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.3},
+      "encoding": {
+        "color": {
+          "field": "MedalsNormalized",
+          "type": "quantitative",
+          "scale": {"type": "linear", "domain": [0, 1]},
+          "legend": {"title": "Normalized Medal Score", "orient": "right"}
         },
-        "transform": [
-          {
-            "lookup": "properties.NAME",
-            "from": {
-              "data": {"url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"},
-              "key": "country",
-              "fields": ["OlympicMedalsTotal_2022","OlympicMedalsGold","OlympicMedalsSilver","OlympicMedalsBronze"]
-            }
-          },
-          {"calculate": "toNumber(datum.OlympicMedalsTotal_2022)", "as": "Medals"}
-        ],
-        "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.3},
-        "encoding": {
-          "color": {
-            "field": "Medals",
-            "type": "quantitative",
-            "scale": {"type": "log", "domainMin": 1},
-            "legend": {"title": "Total medals", "orient": "right"}  
-          },
-          "tooltip": [
-            {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-            {"field": "Medals", "type": "quantitative", "title": "Total"},
-            {"field": "OlympicMedalsGold", "type": "quantitative", "title": "Gold"},
-            {"field": "OlympicMedalsSilver", "type": "quantitative", "title": "Silver"},
-            {"field": "OlympicMedalsBronze", "type": "quantitative", "title": "Bronze"}
-          ]
-        }
+        "tooltip": [
+          {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+          {"field": "Medals", "type": "quantitative", "title": "Total"},
+          {"field": "OlympicMedalsGold", "type": "quantitative", "title": "Gold"},
+          {"field": "OlympicMedalsSilver", "type": "quantitative", "title": "Silver"},
+          {"field": "OlympicMedalsBronze", "type": "quantitative", "title": "Bronze"},
+          {"field": "MedalsNormalized", "type": "quantitative", "title": "Normalized (0–1)"}
+        ]
       }
-    ]
-  };
+    }
+  ]
+};
+
 
   // ---------- DONUT (country picker under chart) ----------
 const donutSpec = {
@@ -156,16 +183,35 @@ const donutSpec = {
     "url": "https://raw.githubusercontent.com/qiaoen04/FIT3179-DataViz2/main/olympic.csv"
   },
 
-  // NEW: define the country param + bind it to the controls div
   "params":[
     {
       "name":"country_sel",
-      "value": null,
+      "value":"United States of America",   // <-- default selection
       "bind":{
         "input":"select",
         "name":" Country: ",
-        "options":[null,"United States of America","Germany","France","United Kingdom","China","Italy","Russia","Sweden","Japan","Australia","Netherlands","Canada","Norway","Hungary","Finland","Switzerland","Austria","Spain","Poland","Romania","Cuba","Bulgaria","Denmark","Ukraine","Belgium","Brazil","Greece","New Zealand","Czechia","Turkey","Kenya","Belarus","Argentina","Kazakhstan","South Africa","Mexico","Iran","Jamaica"],
-        "labels":["— Select a country —"],
+        "options":[
+          "Afghanistan","Algeria","Andorra","Argentina","Armenia","Australia","Austria",
+          "Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium",
+          "Bermuda","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil",
+          "Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Chile",
+          "China","Colombia","Costa Rica","Croatia","Cuba","Cyprus","Czechia","Denmark",
+          "Djibouti","Dominican Republic","Ecuador","Egypt","El Salvador","Eritrea",
+          "Estonia","Ethiopia","Fiji","Finland","France","Gabon","Georgia","Germany",
+          "Ghana","Greece","Grenada","Guatemala","Guyana","Haiti","Hong Kong S.A.R",
+          "Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy",
+          "Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyzstan","Latvia",
+          "Lebanon","Liechtenstein","Lithuania","Luxembourg","Malaysia","Mexico","Moldova",
+          "Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia",
+          "Nauru","Netherlands","New Zealand","Nigeria","North Korea","North Macedonia",
+          "Norway","Pakistan","Panama","Paraguay","Peru","Philippines","Poland","Portugal",
+          "Puerto Rico","Qatar","Romania","Russia","San Marino","Saudi Arabia","Senegal",
+          "Serbia","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain",
+          "Sri Lanka","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan",
+          "Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan",
+          "Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America",
+          "Uruguay","Uzbekistan","Venezuela","Vietnam","Zambia","Zimbabwe"
+        ],
         "element":"#donut-controls"
       }
     }
@@ -173,8 +219,7 @@ const donutSpec = {
 
   "transform": [
     {"filter": "datum.country && datum.country != 'Total'"},
-    {"fold": ["OlympicMedalsGold","OlympicMedalsSilver","OlympicMedalsBronze"],
-     "as": ["MedalType","Count"]},
+    {"fold": ["OlympicMedalsGold","OlympicMedalsSilver","OlympicMedalsBronze"], "as": ["MedalType","Count"]},
     {"calculate": "datum.MedalType == 'OlympicMedalsGold' ? 'Gold' : datum.MedalType == 'OlympicMedalsSilver' ? 'Silver' : 'Bronze'", "as": "Medal"},
     {"aggregate": [{"op":"sum","field":"Count","as":"Count"}], "groupby":["country","Medal"]},
     {"joinaggregate": [{"op":"sum","field":"Count","as":"Total"}], "groupby":["country"]},
@@ -182,11 +227,11 @@ const donutSpec = {
   ],
 
   "layer": [
-    // Placeholder ring + text before a country is picked
+    // (Optional) You can delete the placeholder ring since we now have a default selection.
     {
       "transform": [{"filter": "country_sel == null"}],
       "mark": {"type":"arc","innerRadius":90,"outerRadius":150,"color":"#e0e0e0"},
-      "encoding": {"theta": {"value": 6.283}}   // full circle
+      "encoding": {"theta": {"value": 6.283}}
     },
     {
       "transform": [{"filter": "country_sel == null"}],
@@ -194,7 +239,6 @@ const donutSpec = {
       "encoding": {"text": {"value":"Select a country"}, "color":{"value":"#666"}}
     },
 
-    // Actual donut after selection
     {
       "transform": [{"filter": "datum.country == country_sel"}],
       "mark": {"type":"arc","innerRadius":90,"outerRadius":150},
